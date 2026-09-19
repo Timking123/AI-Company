@@ -1,0 +1,10 @@
+.ai-company/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+node_modules/
+.preview/

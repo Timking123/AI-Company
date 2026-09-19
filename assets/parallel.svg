@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="790" viewBox="0 0 840 790" role="img" aria-labelledby="title desc">
+  <title id="title">Same work, serial and parallel schedules</title>
+  <desc id="desc">Illustrative, not a benchmark. Planning takes 1 time unit, four independent tasks A to D each take 2, and integration with verification takes 1. Serial elapsed time is 10 units with one worker slot. With four worker slots the tasks run concurrently and ideal elapsed time is 4 units. Total scheduled work is 10 units for either schedule. Additional coordination and rework are excluded.</desc>
+  <metadata>illustration: plan=1; tasks=4; task_duration=2; integrate=1; serial_slots=1; parallel_slots=4; serial_elapsed=10; parallel_elapsed=4; scheduled_work=10; additional_overhead_excluded=true</metadata>
+  <defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#173b32}.eyebrow{font-size:15px;font-weight:700;letter-spacing:2px}.headline{font-family:Georgia,serif;font-size:37px}.section{font-size:24px;font-weight:700}.big{font-size:48px;font-weight:700}.task{font-size:27px;font-weight:700}.note{font-size:18px}.tick{font-size:16px;fill:#52645a}</style></defs>
+  <rect width="840" height="790" rx="20" fill="#f5f2e9"/>
+  <text x="48" y="48" class="eyebrow">ILLUSTRATIVE SCHEDULE · NOT A BENCHMARK</text>
+  <text x="48" y="96" class="headline">Same work. Different schedule.</text>
+  <text x="48" y="155" class="section">SERIAL</text><text x="178" y="155" class="note">1 worker slot</text>
+  <text x="688" y="160" class="big">10</text><text x="757" y="159" class="note">units</text>
+  <g transform="translate(70 195)">
+    <rect width="70" height="66" rx="7" fill="#d9ddd0"/><rect x="70" width="140" height="66" rx="7" fill="#eba06f"/>
+    <rect x="210" width="140" height="66" rx="7" fill="#8eb3a1"/><rect x="350" width="140" height="66" rx="7" fill="#9cb5c0"/>
+    <rect x="490" width="140" height="66" rx="7" fill="#dba198"/><rect x="630" width="70" height="66" rx="7" fill="#d9ddd0"/>
+    <g text-anchor="middle" class="task"><text x="35" y="44">P</text><text x="140" y="44">A</text><text x="280" y="44">B</text><text x="420" y="44">C</text><text x="560" y="44">D</text><text x="665" y="44">I</text></g>
+    <path d="M0 80H700" stroke="#a4ad9e"/>
+    <g text-anchor="middle" class="tick"><text x="0" y="104">0</text><text x="70" y="104">1</text><text x="210" y="104">3</text><text x="350" y="104">5</text><text x="490" y="104">7</text><text x="630" y="104">9</text><text x="700" y="104">10</text></g>
+  </g>
+  <path d="M48 327H792" stroke="#d7dbce"/>
+  <text x="48" y="374" class="section">PARALLEL</text><text x="207" y="374" class="note">4 worker slots</text>
+  <text x="717" y="380" class="big">4</text><text x="757" y="379" class="note">units</text>
+  <g transform="translate(70 420)">
+    <rect width="70" height="218" rx="7" fill="#d9ddd0"/>
+    <rect x="70" width="140" height="47" rx="7" fill="#eba06f"/>
+    <rect x="70" y="57" width="140" height="47" rx="7" fill="#8eb3a1"/>
+    <rect x="70" y="114" width="140" height="47" rx="7" fill="#9cb5c0"/>
+    <rect x="70" y="171" width="140" height="47" rx="7" fill="#dba198"/>
+    <rect x="210" width="70" height="218" rx="7" fill="#d9ddd0"/>
+    <g text-anchor="middle" class="task"><text x="35" y="119">P</text><text x="140" y="33">A</text><text x="140" y="90">B</text><text x="140" y="147">C</text><text x="140" y="204">D</text><text x="245" y="119">I</text></g>
+    <rect x="302" width="398" height="218" rx="12" fill="#e7ecdf"/>
+    <text x="501" y="95" text-anchor="middle" style="font-family:Georgia,serif;font-size:37px">6 units sooner</text>
+    <text x="501" y="130" text-anchor="middle" class="note">in this idealized example</text>
+    <text x="501" y="163" text-anchor="middle" class="note">same tasks · more worker slots</text>
+    <path d="M0 232H700" stroke="#a4ad9e"/>
+    <g text-anchor="middle" class="tick"><text x="0" y="256">0</text><text x="70" y="256">1</text><text x="210" y="256">3</text><text x="280" y="256">4</text><text x="700" y="256">10</text></g>
+  </g>
+  <text x="420" y="725" text-anchor="middle" class="section">Total scheduled work: 10 units either way.</text>
+  <text x="420" y="756" text-anchor="middle" class="note">P = plan · I = integrate + verify · Four independent tasks</text>
+  <text x="420" y="781" text-anchor="middle" class="note">Additional coordination, latency, and rework are excluded.</text>
+</svg>

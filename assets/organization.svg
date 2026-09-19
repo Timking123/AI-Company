@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="830" viewBox="0 0 840 830" role="img" aria-labelledby="title desc">
+  <title id="title">AI-Company organization</title>
+  <desc id="desc">A human owner works with one CTO. The CTO coordinates API, Web, and QA leads. Each lead manages two workers in separate workspaces. Leads coordinate directly and report consequential agreements to the CTO. The owner may also speak directly to leads.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1L6 4L1 7" fill="none" stroke="#52645a" stroke-width="1.4"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#173b32} .label{font-size:15px;font-weight:700;letter-spacing:2px} .title{font-family:Georgia,serif;font-size:38px} .role{font-size:31px;font-weight:700} .small{font-size:18px} .line{fill:none;stroke:#52645a;stroke-width:2.2} .worker{font-size:25px;font-weight:700}
+    </style>
+  </defs>
+  <rect width="840" height="830" rx="20" fill="#f5f2e9"/>
+  <text x="48" y="49" class="label">THE ORG CHART</text>
+  <text x="48" y="99" class="title">One owner. Clear ownership.</text>
+  <rect x="270" y="139" width="300" height="83" rx="15" fill="#eb9b67"/>
+  <text x="420" y="178" text-anchor="middle" class="role">YOU</text>
+  <text x="420" y="205" text-anchor="middle" class="small">direction + decisions</text>
+  <path d="M420 229V259" class="line" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="270" y="270" width="300" height="84" rx="15" fill="#173b32"/>
+  <text x="420" y="309" text-anchor="middle" class="role" style="fill:#f5f2e9">CTO</text>
+  <text x="420" y="338" text-anchor="middle" class="small" style="fill:#e6eadd">project-wide coordination</text>
+  <path d="M420 354V385H150V414M420 385V414M420 385H690V414" class="line"/>
+  <circle cx="420" cy="385" r="5" fill="#52645a"/>
+  <rect x="60" y="420" width="180" height="91" rx="12" fill="#dbe5d8"/>
+  <rect x="330" y="420" width="180" height="91" rx="12" fill="#dbe5d8"/>
+  <rect x="600" y="420" width="180" height="91" rx="12" fill="#dbe5d8"/>
+  <text x="150" y="451" text-anchor="middle" class="label">TEAM LEAD</text>
+  <text x="420" y="451" text-anchor="middle" class="label">TEAM LEAD</text>
+  <text x="690" y="451" text-anchor="middle" class="label">TEAM LEAD</text>
+  <text x="150" y="490" text-anchor="middle" class="role">API</text>
+  <text x="420" y="490" text-anchor="middle" class="role">WEB</text>
+  <text x="690" y="490" text-anchor="middle" class="role">QA</text>
+  <path d="M250 466H320M520 466H590" class="line" stroke-dasharray="5 6" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M150 511V585H103V613M150 585H197V613M420 511V585H373V613M420 585H467V613M690 511V585H643V613M690 585H737V613" class="line"/>
+  <g fill="#e8e5da" stroke="#c8cdbf" stroke-width="1.2">
+    <rect x="62" y="619" width="82" height="64" rx="10"/><rect x="156" y="619" width="82" height="64" rx="10"/>
+    <rect x="332" y="619" width="82" height="64" rx="10"/><rect x="426" y="619" width="82" height="64" rx="10"/>
+    <rect x="602" y="619" width="82" height="64" rx="10"/><rect x="696" y="619" width="82" height="64" rx="10"/>
+  </g>
+  <g text-anchor="middle" class="worker"><text x="103" y="660">A1</text><text x="197" y="660">A2</text><text x="373" y="660">B1</text><text x="467" y="660">B2</text><text x="643" y="660">C1</text><text x="737" y="660">C2</text></g>
+  <text x="150" y="714" text-anchor="middle" class="small">API workers</text><text x="420" y="714" text-anchor="middle" class="small">Web workers</text><text x="690" y="714" text-anchor="middle" class="small">QA workers</text>
+  <path d="M48 746H792" stroke="#d7dbce"/>
+  <text x="420" y="780" text-anchor="middle" class="small">One lead per worker. One writer per file.</text>
+  <text x="420" y="807" text-anchor="middle" class="small">Dashed links: leads coordinate directly.</text>
+</svg>

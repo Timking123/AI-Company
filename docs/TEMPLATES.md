@@ -1,0 +1,116 @@
+# Coordination templates
+
+Use these fields with [WORKFLOW.md](../WORKFLOW.md) and the [role prompts](ROLES.md).
+Fill only relevant fields; a short task can use a few lines. These are copyable briefs, not a requirement to open six documents.
+Keep one authoritative project registry, preferably the existing one or `.ai-company/STATE.md` with authorized creation.
+The CTO alone writes that registry. Leads submit updates and keep detailed notes only in their assigned locations.
+Link existing decisions, contracts, and evidence instead of maintaining duplicate status tables. Keep private operational details out of public examples.
+
+## Project charter and registry entry
+
+- Project and owner: [project name; human owner]
+- Objective and completion boundary: [observable outcome; where authorized delivery ends]
+- Acceptance and required gates: [criteria; project rule/contract links; evidence required]
+- Excluded scope: [work and external effects outside this assignment]
+- Authorization: [source; allowed edits, task creation, messages, Git delivery; separately scoped deployment, providers, spending, data, recurrence]
+- CTO and appointment: [one responsible task; authority; effective time]
+- Directions and leads: [bounded objective and accountable lead for each direction]
+- Authoritative registry: [one existing entry point or approved project-local file]
+- Host capability check: [time; visible durable tasks/list/read/send/wait; filesystem/Git/configuration; supported, unsupported, or unknown with evidence]
+- Manual steps: [unsupported operations; human action or authorized serial alternative]
+- Model policy: [owner choice or default; actual models/reasoning; verification time; authorized fallback]
+- Existing work and reuse: [tasks/artifacts to continue; duplicate work avoided; unresolved ownership]
+- Baseline: [verified repository and exact assigned commit; required base checks; or explicit non-Git artifact snapshot]
+- Ownership and capacity: [shared-file/resource owners; integration writer; review capacity and WIP limit]
+- Dependencies and next action: [producer; deliverable/version; release condition; receiving owner]
+- Decisions and stop conditions: [open issue; decision owner; experiment cap or external condition]
+
+For each registered task, keep one row or short entry with:
+
+| Task | Manager | Brief / ownership | Status | Next action / resolver | Candidate / evidence |
+| --- | --- | --- | --- | --- | --- |
+| [readable name and private task reference] | [one lead] | [brief; worktree/branch/file/resource allocation] | [planned/pending/active/blocked/ready/done/stopped] | [action and owner; release condition if blocked] | [commit or snapshot; evidence link] |
+
+Add milestone fields to that same entry: implementation, verification, integration, deployment.
+For each, give its status, owner, and evidence; use `out of scope` when the charter excludes it.
+For `pending`, retain the creation reference and readback status so a retry does not create a duplicate task.
+
+## Worker brief
+
+- Assignment and manager: [one verifiable outcome; creating lead or registered successor]
+- Appointment and context: [role; project rules, registry, relevant decisions, existing work]
+- Acceptance and deliverables: [what the lead will inspect; artifact location; authorized closure boundary]
+- Allowed scope: [exclusive files; permitted reads and writes; permitted external actions]
+- Prohibited scope: [other owners' files; protected configuration/data; external side effects]
+- Workspace and baseline: [worktree; branch; exact assigned base; clean-start evidence or explicit preservation brief]
+- Non-Git or read-only mode: [applicable alternative; content snapshot; no artificial branch or initialization]
+- Dependencies and contracts: [producer; artifact/version; release condition; shared contract owner]
+- Resource ownership: [ports, databases, sessions, generated outputs, test slots as relevant]
+- Reuse decision: [existing implementation/task; why this assignment is needed]
+- Execution limits: [verified model/reasoning; allowed short internal assistance; experiment time/usage cap]
+- Validation: [commands; required review/CI; same-candidate evidence; stop-on-failure rules]
+- Reporting and stop conditions: [events; lead channel; exact blockers; actions allowed while waiting]
+- Return package: [candidate; changes; checks and evidence; risks; remaining work; dependency release; lessons]
+
+For an experiment, include the hypothesis, minimum test, success/failure criteria, cap, and exit condition before starting.
+For read-only work, prohibit edits, task creation, provider calls, and other external effects unless separately authorized.
+
+## User interaction and event update
+
+- Event: [start, scope/interface change, blocker, ready candidate, handoff, or completion; time]
+- Routing: [sender role; recipient role; related task and decision reference]
+- Owner intent: [request in faithful wording; source; change from the prior agreement]
+- Lead interpretation: [what the request means for this direction; uncertainty, if any]
+- Facts and evidence: [observed result; artifact or commit; limitations]
+- Actions: [already executed; next action; responsible party]
+- Impact: [scope, priority, acceptance, authorization, shared interfaces, dependencies, material risks]
+- Decision needed: [specific choice and options; or “none; continuing under existing authorization”]
+- Delivery and acknowledgment: [sent, pending, or confirmed; pending follow-up; prior-send check before retry]
+
+Leads send material owner interactions to the CTO before the affected delivery closes. Routine updates can be combined.
+Sending this update does not itself request another approval for an authorized owner decision.
+
+## Dependency handoff
+
+- Producer and consumer: [responsible leads and tasks]
+- Required deliverable: [artifact or contract; exact commit/version; approved location]
+- Release condition: [observable criteria the receiver must verify before dependent work begins]
+- Evidence: [tests, review, relevant limitations; artifact readback]
+- Ownership: [current file/resource owner; changes require formal transfer when applicable]
+- Receiver result: [accepted or rejected; evidence; mismatch and resolver]
+- Next action: [owner; sequencing; unaffected work that can proceed]
+- CTO update: [material conclusion; unresolved shared-design, ownership, priority, or acceptance decision]
+
+## Acceptance and delivery record
+
+- Assignment and acceptance boundary: [brief link; accountable lead; authorized endpoint]
+- Candidate identity: [repository/workspace; exact commit or reproducible content snapshot; configuration and time]
+- Delivered changes: [artifact paths and observable behavior; deviations from the brief]
+- Acceptance evidence: [criterion -> result -> evidence location]
+- Validation: [commands; exit codes; artifact readback; failures and limitations]
+- Independent review: [reviewer; candidate reviewed; findings resolved or outstanding; applicable requirement]
+- CI and integration: [same-commit checks; result; integration owner; resulting candidate and revalidation]
+- Delivery milestones: [implementation / verification / integration / deployment, each with status, owner, evidence, or explicit out-of-scope reason]
+- Remaining work and risks: [mandatory gate still open; blocker and resolver; optional follow-up]
+- Dependency release: [deliverable and condition; receiving lead's acknowledgment]
+- Closure: [required archives/handoff; lead recommendation; CTO readback and final status]
+
+After a candidate or combined result changes, identify stale evidence and rerun applicable gates before accepting it.
+If a required gate is blocked, keep it open and name the missing condition. Do not write “done” for a partially fulfilled boundary.
+
+## Ownership and dispatcher transfer
+
+- Transfer scope: [CTO, lead, worker, files, or resources; affected existing tasks]
+- Authority and reason: [owner or CTO decision, or responsible lead for its bounded allocation; no timeout-based inference]
+- Predecessor and successor: [one outgoing and one incoming owner; their verified task identities]
+- Preserved context: [objective; decisions; authorization; workers; paths/resources; dependencies; models/configuration]
+- Work and evidence: [candidate commits or snapshots; dirty state; tests/review/CI; remaining work]
+- Cessation: [evidence the predecessor stopped dispatching and/or writing the transferred scope; unresolved runtime checks]
+- Successor acceptance: [handoff readback; exact scope accepted; time]
+- Effective record: [registry update and effective time; sole writer after a CTO transfer]
+- Worker notice: [authorized delivery channel; affected workers' confirmation of their registered manager]
+- Resume action: [new owner's next step; required revalidation; preserved limits]
+- Incomplete transfer: [conflicting actions held; missing evidence; independent read-only preparation]
+
+For a CTO transfer, the predecessor stops registry writes before the successor assumes them.
+For a lead transfer, the CTO records the successor for existing workers before dispatch resumes.
