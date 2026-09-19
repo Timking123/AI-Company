@@ -1,0 +1,71 @@
+name: Tryout feedback / 试用反馈
+description: Tell us how your first AI-Company workstream went / 说说第一次开工顺不顺
+title: "[Tryout] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Smooth handoff or office spaghetti? Both are useful feedback.
+        配合默契，还是绕成毛线团？都欢迎反馈。
+
+        This issue will be public. Use a fictional goal and sanitized details.
+        Please do not paste secrets, personal paths, private task IDs, or whole chat logs.
+        本表公开可见，请使用虚构目标或脱敏描述，不要粘贴密钥、个人路径、内部任务 ID 或完整聊天记录。
+  - type: input
+    id: client
+    attributes:
+      label: Agent and version / 助手与版本
+      placeholder: "Client name + version; model if known / 工具名、版本、已知的模型"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What were you trying to do? / 想完成什么？
+      description: "One short, sanitized goal. No private project name needed. / 一句脱敏目标，不需要私人项目名称。"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: How did the team run? / 团队怎样运行？
+      options:
+        - Native task tools / 原生任务工具
+        - Extension or external coordinator / 扩展或外部协调工具
+        - Manual relay / 人工转交
+        - Mixed or unsure / 混合或不确定
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Which part are you reporting? / 反馈哪个环节？
+      options:
+        - Getting started / 开始使用
+        - Creating or finding the team / 建立或查找团队
+        - File ownership / 文件归属
+        - Coordination or handoff / 协调与交接
+        - Review or delivery / 验收与交付
+        - A successful run / 一次顺利的使用
+        - Something else / 其他情况
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and actual result / 预期与实际结果
+      description: "What should happen, what happened, and the smallest steps that show it. Success reports are welcome too. / 想发生什么、实际发生什么、最小复现步骤；成功经验也欢迎。"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: One thing to improve / 最想改进的一点
+      description: "Optional. A confusing sentence or a missing step is enough. / 选填，一句困惑的文案或一个缺失步骤就可以。"
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before posting / 发布前确认
+      options:
+        - label: "I removed secrets and private project or personal information. / 我已移除密钥及私人项目、个人信息。"
+          required: true

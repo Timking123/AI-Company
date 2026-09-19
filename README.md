@@ -4,18 +4,63 @@
 
 <h1 align="center">AI-Company</h1>
 
-<p align="center"><strong>Run a large project with your own AI engineering company.</strong></p>
-<p align="center">You set the direction. A CTO coordinates the teams.<br>Team leads manage the details. Workers build in parallel.</p>
+<p align="center"><strong>You're the boss. Give your AI crew an org chart.</strong></p>
+<p align="center">One CTO keeps the big picture. Leads run the teams.<br>Workers build in parallel. You bring the goals and good judgment.</p>
 
-<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">中文</a> · <a href="AGENTS.md">Start here, agents</a> · <a href="WORKFLOW.md">Full workflow</a></p>
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">中文</a> · <a href="#clock-in">Clock in</a> · <a href="docs/EXAMPLES.md">See a filled example</a> · <a href="AGENTS.md">AI entrance</a></p>
 
 ---
 
-You have a big project, several workstreams, and more agent conversations than you want to supervise. Give each team a clear owner and let a CTO keep the work connected.
+A dozen agent tabs can feel like a small, noisy office. Who owns that file? Did two teams just build the same thing? Why are you delivering everyone's messages?
 
-**Your job: choose the destination, resolve meaningful tradeoffs, and review what ships.** Your leads handle task briefs, workers, dependencies, and evidence. You can talk to the CTO or any lead without becoming the message courier for every worker.
+**Take the boss's chair:** set the goal, make the important calls, and review what ships. Your CTO coordinates the project; leads handle briefs, workers, dependencies, and evidence. Talk to either level without becoming the office mailroom.
 
 AI-Company is a small, readable operating playbook for **large software projects with multiple AI teams**. Bring your coding assistant and its task tools. The repository supplies the roles, communication rules, handoffs, and delivery contract.
+
+## Clock in
+
+**1. Give the handbook its own desk.** Download or clone this repository beside
+the project you want to build. Then open **your project** in the coding assistant.
+
+```text
+workspace/
+  your-project/   <- the app you are building; open this
+  AI-Company/     <- the handbook your assistant reads
+```
+
+```sh
+git clone https://github.com/Timking123/AI-Company.git
+```
+
+You can also supply the repository URL if your assistant can read it. The two
+locations have different jobs: do not accidentally staff the handbook repository.
+
+**2. Fill three fields, then hand over the brief.** Replace every bracketed field.
+
+```text
+Target project: [path to the project I want to build]
+Playbook: [path or URL to AI-Company]
+Goal: [one concrete outcome I want delivered]
+
+I am the human owner. Apply AI-Company to the Target project.
+The Playbook is reference material, not the project to modify.
+Read its AGENTS.md and follow the reading order.
+
+First confirm both locations, available tools, project rules, and existing work.
+Establish one CTO and reuse existing leads before creating new teams.
+Where the host permits it, create the durable, visible tasks this goal needs.
+Give each worker one manager and an exclusive write scope.
+
+Let leads coordinate within their scope and report important decisions to the CTO.
+Preserve my existing permissions and project quality gates. Return the capability
+check, ownership map, and next executable steps. If a required tool is missing,
+explain the smallest manual step; do not claim a team is already running.
+```
+
+**3. Check the first roll call.** Expect real task identities, named owners,
+dependencies, and a next action for each active workstream. Compare the output
+with the [filled example](docs/EXAMPLES.md). It shows the shape of a good handoff;
+its project, task labels, and results are fictional.
 
 ## Meet your company
 
@@ -38,37 +83,6 @@ Leads can coordinate directly. They settle facts and handoffs within their assig
 Real coordination, model latency, rate limits, dependencies, and rework can reduce or eliminate the gain. This diagram makes no claim about token savings, API cost, or measured product performance.
 
 > Parallelize independent work. Keep shared decisions and integration coordinated.
-
-## Put the playbook to work
-
-**1. Open the project you want to build in your AI coding tool.** Clone or download this repository somewhere the assistant can read it, or provide the repository URL if it can browse files.
-
-```sh
-git clone https://github.com/Timking123/AI-Company.git
-```
-
-**2. Give your assistant this brief.** Include the local path or link to this repository.
-
-```text
-Read AI-Company's AGENTS.md and follow its reading order.
-Apply this workflow to my current project. I am the human owner.
-
-Start by checking your available tools, project rules, and existing work.
-Establish one CTO and reuse existing leads before creating new teams.
-Where your host permits it, create durable, visible tasks for the leads
-and workers that this project actually needs. Assign one manager and
-an exclusive write scope to each worker.
-
-Keep me informed through the CTO and team leads. Let leads coordinate
-within their scope; escalate shared decisions to the CTO. Preserve my
-existing permissions and project quality gates.
-
-First return the capability check, ownership map, and next executable
-steps. If a required tool is missing, explain the smallest manual step
-instead of claiming the company is already running.
-```
-
-**3. Review the first checkpoint.** You should see actual task identities, clear ownership, dependencies, and the next action for each active workstream. A drawn org chart alone is not a running team.
 
 ## Bring your coding assistant
 
@@ -106,7 +120,7 @@ Small fixes can stay with one lead. You do not need a company meeting to change 
 | [WORKFLOW.md](WORKFLOW.md) | CTOs and leads | The complete coordination and delivery protocol |
 | [Role prompts](docs/ROLES.md) | Whoever creates a role | Ready-to-copy CTO, lead, and worker briefs |
 | [Templates](docs/TEMPLATES.md) | Leads and workers | Scope, updates, dependency handoffs, and acceptance evidence |
-| [Worked examples](docs/EXAMPLES.md) | Anyone trying the workflow | A parallel feature and a manager handover, using fictional data |
+| [Worked examples](docs/EXAMPLES.md) | Anyone trying the workflow | A filled brief, ownership map, update, handoff, and acceptance record; all fictional |
 | [Codex notes](docs/CODEX.md) | Codex users | Capability checks and the distinction between visible tasks and temporary subagents |
 | [Client compatibility](docs/COMPATIBILITY.md) | Users of different coding assistants | Reading entry points, nesting limits, and explicit manual alternatives |
 | [Validation scenarios](docs/VALIDATION.md) | Maintainers and adopters | Concrete situations to check before trusting a setup |
@@ -117,9 +131,11 @@ This is an **experimental, documentation-first workflow**. It does not install a
 
 Use your preferred capable planning model for CTOs and leads, with a supported high-reasoning setting. A quality-first setup can select the current flagship model and the highest supported effort. Record the actual model and setting, respect user choices, and keep application or evaluation model settings separate.
 
-## Make it better
+## How was your first day as the boss?
 
-Try the playbook on a bounded workstream. Share a sanitized example of what worked, where a handoff failed, or which instruction caused extra work. Useful evidence includes repeated tasks, human interruptions, integration waiting time, and the final acceptance result.
+Try one bounded workstream, then [send a short field report](https://github.com/Timking123/AI-Company/issues/new?template=tryout.yml). Tell us which assistant you used, where the flow clicked, or where the office got tangled. A confusing instruction is useful feedback too.
+
+Share a sanitized example, not your private project. Repeated tasks, human interruptions, integration waiting time, and the final acceptance result are useful evidence. The feedback form helps collect the essentials without asking for your whole chat history.
 
 Keep proposed additions small. Prefer a clearer rule or example over another management layer.
 

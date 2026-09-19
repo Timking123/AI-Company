@@ -27,6 +27,12 @@ workflow or establish a performance claim for it.
   Standard C2PA AI-origin credentials are retained; see [privacy and provenance](PRIVACY.md).
 - `assets/organization.svg`: original, editable diagram of the management and
   coordination relationships.
+- [assets/social-preview.jpg](../assets/social-preview.jpg): a share card derived
+  from the hero through the same image-generation tool, with the public project
+  title and the lines “You're the boss.” and “Give your AI crew an org chart.”
+  Exported as JPEG for the hosting platform's upload-size limit. This derivative
+  does not retain the source PNG's C2PA credentials; its generated origin is
+  documented here, and the original hero retains its provenance.
 - `assets/parallel.svg`: original scheduling illustration. Its assumptions and
   arithmetic are documented in [EXAMPLES.md](EXAMPLES.md).
 

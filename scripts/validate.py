@@ -15,8 +15,8 @@ REQUIRED = {
     "AGENTS.md", "CLAUDE.md", "GEMINI.md", "WORKFLOW.md", "README.md", "README.zh-CN.md", "LICENSE",
     "docs/ROLES.md", "docs/TEMPLATES.md", "docs/CODEX.md", "docs/EXAMPLES.md",
     "docs/VALIDATION.md", "docs/SOURCES.md", "docs/COMPATIBILITY.md", "docs/PRIVACY.md", "assets/company-hero.png",
-    "assets/organization.svg", "assets/parallel.svg", "scripts/validate.py",
-    ".gitignore", ".gitattributes", ".github/workflows/docs.yml",
+    "assets/organization.svg", "assets/parallel.svg", "assets/social-preview.jpg", "scripts/validate.py",
+    ".gitignore", ".gitattributes", ".github/workflows/docs.yml", ".github/ISSUE_TEMPLATE/tryout.yml",
 }
 EXCLUDED = {".git", ".preview", ".ai-company", "__pycache__", "node_modules"}
 
@@ -127,6 +127,15 @@ def validate() -> list[str]:
             width, height = struct.unpack(">II", header[16:24])
             if width < 1000 or height < 400 or not 1.8 <= width / height <= 2.2:
                 errors.append("Hero dimensions do not match the wide cover format")
+
+    card = ROOT / "assets/social-preview.jpg"
+    if safe_regular(card):
+        with card.open("rb") as stream:
+            signature = stream.read(3)
+        if signature != b"\xff\xd8\xff":
+            errors.append("Social preview is not a JPEG")
+        if card.stat().st_size >= 1_000_000:
+            errors.append("Social preview must stay below the 1 MB upload limit")
 
     diagram = ROOT / "assets/parallel.svg"
     if safe_regular(diagram):
