@@ -11,6 +11,7 @@ personal project's instructions, conversations, task registry, or credentials.
 - [OpenAI: Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees), for Codex checkout concepts.
 - [Git: git-worktree](https://git-scm.com/docs/git-worktree), for Git's worktree behavior.
 - [GitHub: writing and formatting](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), for repository-relative images and links.
+- Client-specific primary sources and their limits are linked in [COMPATIBILITY.md](COMPATIBILITY.md).
 
 These references describe their respective tools. They do not endorse this
 workflow or establish a performance claim for it.
@@ -23,6 +24,7 @@ workflow or establish a performance claim for it.
   a wide, warm-ivory architectural miniature with exactly one human owner,
   one robot CTO, and three lead islands with parallel robot workstations;
   forest green and orange accents, soft daylight, no text or brand marks.
+  Standard C2PA AI-origin credentials are retained; see [privacy and provenance](PRIVACY.md).
 - `assets/organization.svg`: original, editable diagram of the management and
   coordination relationships.
 - `assets/parallel.svg`: original scheduling illustration. Its assumptions and

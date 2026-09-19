@@ -10,7 +10,7 @@ project, creating tasks, changing global instructions, or performing external ac
 2. Read [WORKFLOW.md](WORKFLOW.md) for the complete operating protocol.
 3. Read your assigned role in [docs/ROLES.md](docs/ROLES.md).
 4. Use [docs/TEMPLATES.md](docs/TEMPLATES.md) for a task or handoff that needs it.
-5. Read [docs/CODEX.md](docs/CODEX.md) when operating in Codex.
+5. Read [client compatibility](docs/COMPATIBILITY.md); use [docs/CODEX.md](docs/CODEX.md) for Codex-specific checks.
 6. Check [docs/VALIDATION.md](docs/VALIDATION.md) before declaring adoption complete.
 
 ## If asked to adopt the workflow

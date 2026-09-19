@@ -67,7 +67,18 @@ git clone https://github.com/Timking123/AI-Company.git
 
 **3. 看第一次接入结果。** 应当有真实任务身份、明确归属、依赖关系和每个活跃方向的下一步。一张组织结构图还不足以证明团队已经建立。
 
-Codex 用户可以接着看 [Codex 接入说明](docs/CODEX.md)。协议也规定了其他宿主能力不足时如何处理；兼容性需要实际核验。
+## 使用你自己的编程助手
+
+这套工作流采用通用 Markdown。[客户端目录](docs/COMPATIBILITY.md)已覆盖 27 个条目，逐项提供官方来源、读取入口和限制：
+
+| 工具类别 | 已纳入的客户端 |
+| --- | --- |
+| 终端与桌面 | Codex、Claude Code、pi、Gemini CLI、OpenCode、Factory Droid、Aider、Amp、Qwen Code |
+| IDE 与编辑器 | Cursor、Windsurf / Devin Desktop、GitHub Copilot、Cline、Kilo Code、Continue、Augment / Auggie、Kiro、Antigravity、TRAE、Qoder、Junie、Amazon Q Developer、ZCode |
+| 托管平台与 SDK | OpenHands、Devin 云端、Replit Agent |
+| 历史参考 | Roo Code，明确标注官方停运状态 |
+
+**文档覆盖不等于运行认证。** 部分客户端需要独立规划会话、经过核验的扩展或人工转交。原生子代理也不自动等于持久、可嵌套的公司组织；创建团队前应核对具体客户端、版本和权限。
 
 ## 让公司正常运转的几条规则
 
@@ -90,6 +101,7 @@ Codex 用户可以接着看 [Codex 接入说明](docs/CODEX.md)。协议也规�
 | [交接模板](docs/TEMPLATES.md) | 规划和工作 Agent | 范围、更新、依赖交接及验收证据 |
 | [完整示例](docs/EXAMPLES.md) | 初次尝试者 | 使用虚构数据演示并行功能开发和规划继任 |
 | [Codex 接入](docs/CODEX.md) | Codex 用户 | 工具能力核验、可见任务与短时子代理的区别 |
+| [客户端兼容性](docs/COMPATIBILITY.md) | 不同编程助手的使用者 | 读取入口、嵌套限制与明确的人工替代路径 |
 | [验证场景](docs/VALIDATION.md) | 维护者和使用者 | 信任这套流程前应检查的具体情形 |
 
 ## 使用预期
@@ -104,4 +116,4 @@ CTO 和规划使用你选择的强规划模型及其支持的高推理设置。�
 
 让新增内容保持精简。优先改清一条规则或补一个例子，再考虑增加管理层。
 
-[提交问题](https://github.com/Timking123/AI-Company/issues) · [MIT 许可证](LICENSE) · [来源与图像](docs/SOURCES.md)
+[提交问题](https://github.com/Timking123/AI-Company/issues) · [MIT 许可证](LICENSE) · [来源与图像](docs/SOURCES.md) · [隐私与来源凭证](docs/PRIVACY.md)

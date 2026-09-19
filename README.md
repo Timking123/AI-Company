@@ -70,7 +70,22 @@ instead of claiming the company is already running.
 
 **3. Review the first checkpoint.** You should see actual task identities, clear ownership, dependencies, and the next action for each active workstream. A drawn org chart alone is not a running team.
 
-Using Codex? Read the [Codex setup notes](docs/CODEX.md). The protocol also describes how to recognize missing capabilities on other hosts; compatibility must be checked rather than assumed.
+## Bring your coding assistant
+
+The workflow is portable Markdown. The [client catalog](docs/COMPATIBILITY.md)
+covers 27 entries with official sources, instruction entry points, and limits:
+
+| Find your tools | Clients covered |
+| --- | --- |
+| Terminal and desktop | Codex, Claude Code, pi, Gemini CLI, OpenCode, Factory Droid, Aider, Amp, Qwen Code |
+| IDE and editor | Cursor, Windsurf / Devin Desktop, GitHub Copilot, Cline, Kilo Code, Continue, Augment / Auggie, Kiro, Antigravity, TRAE, Qoder, Junie, Amazon Q Developer, ZCode |
+| Managed platforms and SDKs | OpenHands, Devin cloud, Replit Agent |
+| Legacy reference | Roo Code, clearly marked with its official shutdown status |
+
+**Documentation coverage is not runtime certification.** Some clients need
+independent lead sessions, verified extensions, or human relay. Native subagents
+do not automatically provide a persistent, nested company. Check your exact
+client, version, and permissions before creating teams.
 
 ## A few rules that make the company work
 
@@ -93,6 +108,7 @@ Small fixes can stay with one lead. You do not need a company meeting to change 
 | [Templates](docs/TEMPLATES.md) | Leads and workers | Scope, updates, dependency handoffs, and acceptance evidence |
 | [Worked examples](docs/EXAMPLES.md) | Anyone trying the workflow | A parallel feature and a manager handover, using fictional data |
 | [Codex notes](docs/CODEX.md) | Codex users | Capability checks and the distinction between visible tasks and temporary subagents |
+| [Client compatibility](docs/COMPATIBILITY.md) | Users of different coding assistants | Reading entry points, nesting limits, and explicit manual alternatives |
 | [Validation scenarios](docs/VALIDATION.md) | Maintainers and adopters | Concrete situations to check before trusting a setup |
 
 ## What to expect
@@ -107,4 +123,4 @@ Try the playbook on a bounded workstream. Share a sanitized example of what work
 
 Keep proposed additions small. Prefer a clearer rule or example over another management layer.
 
-[Open an issue](https://github.com/Timking123/AI-Company/issues) · [MIT license](LICENSE) · [Sources and artwork](docs/SOURCES.md)
+[Open an issue](https://github.com/Timking123/AI-Company/issues) · [MIT license](LICENSE) · [Sources and artwork](docs/SOURCES.md) · [Privacy and provenance](docs/PRIVACY.md)

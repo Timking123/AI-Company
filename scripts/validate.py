@@ -12,9 +12,9 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = {
-    "AGENTS.md", "WORKFLOW.md", "README.md", "README.zh-CN.md", "LICENSE",
+    "AGENTS.md", "CLAUDE.md", "GEMINI.md", "WORKFLOW.md", "README.md", "README.zh-CN.md", "LICENSE",
     "docs/ROLES.md", "docs/TEMPLATES.md", "docs/CODEX.md", "docs/EXAMPLES.md",
-    "docs/VALIDATION.md", "docs/SOURCES.md", "assets/company-hero.png",
+    "docs/VALIDATION.md", "docs/SOURCES.md", "docs/COMPATIBILITY.md", "docs/PRIVACY.md", "assets/company-hero.png",
     "assets/organization.svg", "assets/parallel.svg", "scripts/validate.py",
     ".gitignore", ".gitattributes", ".github/workflows/docs.yml",
 }
@@ -77,7 +77,7 @@ def validate() -> list[str]:
         if any(line != line.rstrip() for line in content.splitlines()):
             errors.append(f"Trailing whitespace: {relative}")
         sensitive = {
-            "local user path": r"(?:[A-Za-z]:[\\/](?:Users|home)[\\/]|/(?:Users|home)/)[^\s<>]+",
+            "local user path": r"(?<![A-Za-z0-9._~:/\\-])(?:[A-Za-z]:[\\/](?:Users|home)[\\/]|/(?:Users|home)/)[^\s<>]+",
             "private task UUID": r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b",
             "credential-shaped value": r"\b(?:ghp_|github_pat_|sk-proj-)[A-Za-z0-9_]{20,}\b",
         }
