@@ -72,8 +72,9 @@ State the missing fact, the affected action, and the smallest decision needed. R
 ## 4. Keep one project registry
 
 The CTO MUST be the sole writer of the authoritative project registry, including task status and ownership allocations.
-Leads send changes to the CTO and MAY maintain notes in their exclusively assigned paths. Workers return evidence to their lead.
+Leads include routine progress in delivery or necessary handoff summaries and MAY maintain detailed notes in their exclusively assigned paths. Workers return evidence to their lead.
 Notes link to the registry; they MUST NOT become competing project-wide status sources.
+Record material decisions and ownership changes when they take effect. Routine local steps do not require a message or registry transition each time.
 
 The registry MUST contain, or link to, the following information:
 
@@ -133,19 +134,18 @@ Shared design, public contracts, ownership, cross-direction priorities, acceptan
 The CTO applies an explicit owner decision without requiring the owner or lead to approve it again.
 Leads MUST continue to direct only their own workers after a cross-team agreement.
 
-Send updates at start, a material scope/interface change, a blocker, a ready candidate, a handoff, or completion.
-A communication event MUST identify:
-
-- Sender and recipient roles, related task, time, and event or decision reference.
-- Observed facts and evidence, the owner's expressed intent, and the lead's interpretation as distinct items where relevant.
-- Actions taken, affected scope and dependencies, and the specific decision or response needed, if any.
-- Next action and owner, delivery status, and acknowledgment when receipt matters to a handoff.
+Workers report only to their direct lead: on completion, when a problem needs action above their authority,
+or before they expect to exceed scope, budget, or a stop condition. They fix ordinary errors locally and retain the evidence in their task record.
+Leads arrange independent review when risk or project requirements call for it, resolve matters within their direction, and report direction deliveries, matters requiring CTO decisions,
+or requests for heavy operations under section 9. Reports include the observed result, evidence, affected scope, and any specific action needed.
+Keep owner intent distinct from interpretation when reporting a decision. Required ownership and dependency handoffs still need confirmation.
 
 Leads MUST report owner interactions that affect scope, priority, acceptance, authority, shared interfaces, or material risk to the CTO promptly and before closing the affected delivery.
-Routine preferences and questions MAY be summarized together. Preserve enough source context to avoid changing the owner's meaning.
+Routine preferences, questions, and progress belong in delivery or necessary handoff summaries, not scheduled status messages. Preserve enough source context to avoid changing the owner's meaning.
 Authorized work continues while the lead reports it. Unsettled cross-direction allocation pauses only affected actions.
 A successful send proves delivery at most; it does not prove agreement, acceptance, or completed work.
-Keep undelivered updates pending and check prior delivery before retrying. Avoid broadcasts and repeated no-change polling.
+Keep undelivered updates pending and check prior delivery before retrying. Do not send routine acknowledgments, relay unchanged reports,
+or poll frequently for unchanged status. Prefer completion events and inspect status when an actual dependency or decision needs it.
 
 ## 7. Handle dependencies and blockers
 
@@ -159,16 +159,18 @@ Keep undelivered updates pending and check prior delivery before retrying. Avoid
 
 ## 8. Verify, integrate, and close
 
-1. The worker delivers the artifact, change list, candidate identity, validation commands/results, evidence paths, limitations, and remaining work.
-2. The lead reads back artifacts and checks acceptance. Arrange independent review when complexity, risk, or project rules require it.
-3. Bind tests, review, and CI to the exact candidate commit and relevant workspace/configuration. For uncommitted work, record a reproducible content snapshot; mark evidence stale when it changes.
-4. The CTO assigns one integration queue and one integration writer, managed through the responsible lead. Integration proceeds serially.
-5. After changes, rebases, conflict resolution, or combination with other work, rerun applicable gates on the resulting candidate. Evidence for a previous commit cannot approve a different commit.
-6. Before merging, verify required tests, review, and CI for the same commit according to project rules. A local exit code alone cannot prove all acceptance conditions.
-7. Perform only authorized delivery steps. Report implementation, verification, integration, deployment, and observed product behavior separately.
-8. The lead checks the agreed completion boundary and handoff; the CTO records closure only after reading the necessary evidence.
+1. The CTO defines the current delivery batch, its included tasks, acceptance, and closing stop condition. New requirements go into the next batch. If closure would exceed the stop condition, the CTO MUST explicitly defer affected work or adjust the batch within existing authorization; it cannot silently drop accepted scope or weaken a required gate.
+2. Workers first run local unit tests and necessary targeted checks, then return their artifact, candidate identity, commands/results, evidence, and limitations. Leads check requirements and evidence and arrange independent review when complexity, risk, or project rules require it; a small fix does not automatically create a reviewer task.
+3. The CTO reviews necessity, duplicate work, cross-direction effects, and delivery readiness during dispatch and candidate acceptance. Extra inspection responds to scope growth, duplication, repeated failures, or expected budget overruns. Do not create a periodic inspection timer or repeat the same review at each layer.
+4. The CTO assigns one integration queue and one integration writer through the responsible lead. Combine all included tasks into one candidate, then run the batch's final full validation covering those tasks and their interactions under the approval in section 9. Do not run the entire project suite separately for each direction or wait for every future backlog item. Preserve project-required gates and repetitions.
+5. Bind tests, review, and CI to the candidate and relevant configuration. For uncommitted work, record a reproducible snapshot. Before reusing evidence after a change, inspect code, dependencies, environment, configuration, tested scope, and mandatory gates. Record what remains applicable; satisfy required same-commit checks on the resulting candidate.
+6. On failure, diagnose and fix with targeted checks first, then determine which final full checks need repeating and whether the approved budget covers them. Passing old evidence does not approve changed behavior.
+7. Perform authorized delivery steps only after required tests, independent review, and CI pass. Report implementation, verification, integration, deployment, and observed product behavior separately.
+8. The lead checks the completion boundary and handoff; the CTO closes the batch after reading the necessary evidence. Unrelated future work does not keep an accepted batch open.
 
 For UI acceptance, evidence MUST identify the environment, page, candidate, and flow observed. Report visual, keyboard, accessibility, build, and business-flow coverage as applicable.
+Use files, logs, and unit tests when they answer the acceptance question. Browser or desktop control and screenshots require a concrete visual or interaction need.
+Collect traces, hashes, or additional encryption only for an identified diagnostic, integrity, or protection purpose. Preserve TLS, required security controls, and project quality gates.
 Required live evaluations remain required when a provider or budget is unavailable; continue deterministic preparation and leave the gate open.
 Agents MUST NOT substitute smoke tests, relax thresholds, conceal failures, or claim a blocked mandatory gate passed.
 After suitable checks pass, repeat testing only for changed candidates, failures, project-required repetitions, or an unresolved concern.
@@ -187,6 +189,33 @@ If a requested setting is unavailable, report the discrepancy and seek a decisio
 A policy file or requested setting does not prove a running task changed. Preserve work and use a supported handoff when changing execution settings.
 This policy concerns development agents. It grants no authority to change product models, evaluation models, providers, or service channels.
 Background recurrence requires explicit scope and supported scheduling; reading this workflow creates no timer or automatic continuation.
+
+### Approve heavy operations once for their intended scope
+
+Full-suite or multi-environment testing, large changes spanning modules, long scans, and bulk calls, downloads, or retries
+MUST receive CTO approval before execution. This includes work triggered automatically by a push, pull request, or hook;
+inspect those triggers before launching the initiating action. Count cumulative work for the same purpose across tasks and commands;
+splitting it does not avoid approval. Unless an approved budget already covers it, the default escalation threshold is 15 minutes of expected
+or actual cumulative operation time, adjustable by the CTO for the project. It is a management default, not a limit on ordinary coding or reading,
+and it does not exempt fast full-suite tests or large changes.
+
+Use one short paragraph in the existing brief or decision record: purpose, benefiting batch and tasks, why a smaller approach is insufficient,
+expected time and other resources, scope and executors, maximum runs and concurrency, and stop conditions. Link the approval rather than
+creating another approval application or status table. The CTO records the same necessity and budget for operations it initiates.
+Existing approval remains valid within its scope and limits; seek another decision only for a material change or expected overrun.
+CTO approval does not replace the owner's required authorization for spending, deployment, data, or other external effects.
+For an authorized solo task with no appointed CTO, the responsible agent records the same necessity and limits within the owner's authority;
+do not create a management layer merely to approve it. Ask the owner only for genuinely missing authority or a consequential decision.
+
+If an operation starts outside its approval, preserve outputs and execution state, launch no additional work, and pause the affected operation
+at a safe stopping point. Report through the lead with the work already done, remaining impact, and decision needed. Do not destroy evidence
+or abruptly interrupt a write that needs a safe stop.
+
+### Resume from observed state
+
+Resume only after checking actual operations, completed effects, remaining scope, authorization, and budget. Keywords in a final reply do not
+grant new authority or prove that retrying is safe. A custom Stop hook MUST NOT decide to repeat work from natural-language output alone.
+Use only documented host capabilities; do not invent continuation fields or add a monitor to compensate for missing state.
 
 ## 10. Transfer ownership without two dispatchers
 

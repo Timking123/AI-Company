@@ -51,7 +51,8 @@ Establish one CTO and reuse existing leads before creating new teams.
 Where the host permits it, create the durable, visible tasks this goal needs.
 Give each worker one manager and an exclusive write scope.
 
-Let leads coordinate within their scope and report important decisions to the CTO.
+Let leads resolve direction-local work and report deliveries, decisions needed,
+and heavy-operation requests to the CTO. Use phase summaries for routine progress.
 Preserve my existing permissions and project quality gates. Return the capability
 check, ownership map, and next executable steps. If a required tool is missing,
 explain the smallest manual step; do not claim a team is already running.
@@ -72,7 +73,7 @@ its project, task labels, and results are fictional.
 | **Team leads** | A complete workstream: planning, worker assignments, review, fixes, and delivery |
 | **Workers stay with their lead** | A bounded implementation, investigation, test, or independent review |
 
-Leads can coordinate directly. They settle facts and handoffs within their assigned scope, then report consequential agreements to the CTO. Changes to shared design, ownership, priorities, or acceptance criteria go to the CTO. Your explicit decisions do not need a second approval.
+Leads coordinate facts and handoffs within their assigned scope. Workers report completion, problems needing higher-level action, or expected scope/budget overruns only to their lead; they fix ordinary errors locally. Leads report direction deliveries and matters needing CTO action. Shared design, ownership, priorities, and acceptance changes go to the CTO. Your explicit decisions do not need a second approval.
 
 ## Same work. A shorter critical path.
 
@@ -106,8 +107,11 @@ client, version, and permissions before creating teams.
 - **One worker, one manager.** A worker follows its creating lead or a formally registered successor. The CTO coordinates through leads.
 - **One file, one writer.** Independent write tasks get isolated checkouts and explicit scopes. Shared contracts and integration have named owners.
 - **Reuse before recruiting.** Check existing tasks, code, and decisions before creating another team or abstraction. Scale concurrent work to review and integration capacity.
-- **Updates keep work moving.** Leads report your requests and decisions to the CTO. Reporting does not add another approval to work you have already authorized.
-- **Ship evidence.** Implementation, verification, integration, and deployment are separate milestones. A changed candidate needs the checks required for that candidate.
+- **Report when action is needed.** Keep routine progress in phase summaries and one authoritative registry. Skip receipt-only messages, unchanged relays, and frequent polling. Material owner decisions still reach the CTO.
+- **Give each review a purpose.** Review workers inspect implementation; leads check requirements and evidence; the CTO checks necessity, duplication, cross-team effects, and delivery at dispatch and acceptance. Investigate warning signs without a patrol timer.
+- **Approve heavy work within a budget.** The CTO approves full-suite/multi-environment tests, large cross-module changes, long scans, and bulk calls/downloads/retries, including automatic push/PR/hook effects. Count work for the same purpose together. The suggested 15-minute escalation line is adjustable; fast full suites still need approval. Reuse valid approvals, preserve safe stop points, and retain separate user spending/deployment consent. See [the approval rule](WORKFLOW.md#9-model-and-execution-policy).
+- **Validate one delivery batch.** Run local unit tests, necessary targeted checks, and independent review first; then validate one combined candidate covering all included tasks and interactions. New needs enter the next batch. The CTO explicitly resolves closure overruns. Fix failures with targeted checks before deciding on full reruns; reuse evidence only after checking what changed and which gates remain mandatory.
+- **Collect evidence for a reason.** Prefer files, logs, and tests when sufficient. Screenshots, traces, hashes, and extra encryption need a concrete purpose; TLS and required controls remain. Resume from actual effects and remaining authority/budget, never from final-reply keywords or a prose-driven Stop retry.
 - **Keep useful lessons.** Leads keep scoped notes and reusable methods. The CTO decides which lessons belong in project rules.
 
 Small fixes can stay with one lead. You do not need a company meeting to change a button label.

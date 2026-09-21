@@ -3,7 +3,7 @@
 Use these fields with [WORKFLOW.md](../WORKFLOW.md) and the [role prompts](ROLES.md).
 Fill only relevant fields; a short task can use a few lines. These are copyable briefs, not a requirement to open six documents.
 Keep one authoritative project registry, preferably the existing one or `.ai-company/STATE.md` with authorized creation.
-The CTO alone writes that registry. Leads submit updates and keep detailed notes only in their assigned locations.
+The CTO alone writes that registry. Leads submit phase summaries and keep detailed notes only in their assigned locations.
 Link existing decisions, contracts, and evidence instead of maintaining duplicate status tables. Keep private operational details out of public examples.
 
 ## Project charter and registry entry
@@ -11,6 +11,7 @@ Link existing decisions, contracts, and evidence instead of maintaining duplicat
 - Project and owner: [project name; human owner]
 - Objective and completion boundary: [observable outcome; where authorized delivery ends]
 - Acceptance and required gates: [criteria; project rule/contract links; evidence required]
+- Delivery batch: [included tasks and interactions; closing stop condition; next-batch backlog link]
 - Excluded scope: [work and external effects outside this assignment]
 - Authorization: [source; allowed edits, task creation, messages, Git delivery; separately scoped deployment, providers, spending, data, recurrence]
 - CTO and appointment: [one responsible task; authority; effective time]
@@ -48,16 +49,17 @@ For `pending`, retain the creation reference and readback status so a retry does
 - Resource ownership: [ports, databases, sessions, generated outputs, test slots as relevant]
 - Reuse decision: [existing implementation/task; why this assignment is needed]
 - Execution limits: [verified model/reasoning; allowed short internal assistance; experiment time/usage cap]
-- Validation: [commands; required review/CI; same-candidate evidence; stop-on-failure rules]
-- Reporting and stop conditions: [events; lead channel; exact blockers; actions allowed while waiting]
+- Validation: [local unit/targeted checks; independent reviewer; combined batch candidate and final validation owner; required CI]
+- Heavy operations: [existing approval link and remaining budget, including automatic triggers; or CTO decision needed before execution]
+- Reporting and stop conditions: [direct lead; completion, needed higher-level action, or expected scope/budget/stop overrun; unaffected work]
 - Return package: [candidate; changes; checks and evidence; risks; remaining work; dependency release; lessons]
 
 For an experiment, include the hypothesis, minimum test, success/failure criteria, cap, and exit condition before starting.
 For read-only work, prohibit edits, task creation, provider calls, and other external effects unless separately authorized.
 
-## User interaction and event update
+## Phase summary or decision-point update
 
-- Event: [start, scope/interface change, blocker, ready candidate, handoff, or completion; time]
+- Event: [direction delivery, decision needed, heavy-operation request, material owner instruction, or required handoff; time]
 - Routing: [sender role; recipient role; related task and decision reference]
 - Owner intent: [request in faithful wording; source; change from the prior agreement]
 - Lead interpretation: [what the request means for this direction; uncertainty, if any]
@@ -65,10 +67,21 @@ For read-only work, prohibit edits, task creation, provider calls, and other ext
 - Actions: [already executed; next action; responsible party]
 - Impact: [scope, priority, acceptance, authorization, shared interfaces, dependencies, material risks]
 - Decision needed: [specific choice and options; or “none; continuing under existing authorization”]
-- Delivery and acknowledgment: [sent, pending, or confirmed; pending follow-up; prior-send check before retry]
+- Delivery: [sent or pending; confirm receipt only when a handoff depends on it; prior-send check before retry]
 
-Leads send material owner interactions to the CTO before the affected delivery closes. Routine updates can be combined.
+Leads send material owner interactions to the CTO before the affected delivery closes. Combine routine progress into phase summaries.
+Workers report completion, problems needing higher-level action, or expected scope/budget/stop overruns only to their lead.
+Fix ordinary errors locally and retain evidence. Do not send routine acknowledgments or unchanged relays.
 Sending this update does not itself request another approval for an authorized owner decision.
+
+## Heavy-operation decision paragraph
+
+Use one paragraph in the existing brief or decision record, with the criteria in [WORKFLOW section 9](../WORKFLOW.md#9-model-and-execution-policy):
+
+> To [purpose] for [batch and tasks], we need [operation] because [why a smaller approach is insufficient]. Expected resources: [time, calls, downloads, compute or cost as applicable]. Scope and executors: [included work and owners], including [automatic push/PR/hook effects]. Limits: [maximum runs, cumulative budget and concurrency]; stop at [failure, budget or safe stopping condition]. CTO decision: [approved scope or pending decision; owner authorization reference where separately required].
+
+Reuse approval within its limits; request a new decision for material changes or expected overruns. The CTO records the same details for its own operations.
+If execution starts outside approval, preserve state, start no additional work, pause safely, and report through the lead.
 
 ## Dependency handoff
 
@@ -84,10 +97,11 @@ Sending this update does not itself request another approval for an authorized o
 ## Acceptance and delivery record
 
 - Assignment and acceptance boundary: [brief link; accountable lead; authorized endpoint]
+- Batch coverage: [included tasks and interactions; combined candidate; explicitly approved deferrals or scope changes]
 - Candidate identity: [repository/workspace; exact commit or reproducible content snapshot; configuration and time]
 - Delivered changes: [artifact paths and observable behavior; deviations from the brief]
 - Acceptance evidence: [criterion -> result -> evidence location]
-- Validation: [commands; exit codes; artifact readback; failures and limitations]
+- Validation: [local checks; final combined validation and approval; commands/exit codes; artifact readback; failures and limitations]
 - Independent review: [reviewer; candidate reviewed; findings resolved or outstanding; applicable requirement]
 - CI and integration: [same-commit checks; result; integration owner; resulting candidate and revalidation]
 - Delivery milestones: [implementation / verification / integration / deployment, each with status, owner, evidence, or explicit out-of-scope reason]
@@ -95,7 +109,9 @@ Sending this update does not itself request another approval for an authorized o
 - Dependency release: [deliverable and condition; receiving lead's acknowledgment]
 - Closure: [required archives/handoff; lead recommendation; CTO readback and final status]
 
-After a candidate or combined result changes, identify stale evidence and rerun applicable gates before accepting it.
+Before reusing evidence, inspect code, dependencies, environment, configuration, tested scope, and mandatory gates.
+After a failure, fix and check the affected path first, then decide which full checks need repeating within the approved budget.
+Use files, logs, and tests when sufficient; visual capture, traces, hashes, or additional encryption need an actual purpose.
 If a required gate is blocked, keep it open and name the missing condition. Do not write “done” for a partially fulfilled boundary.
 
 ## Ownership and dispatcher transfer

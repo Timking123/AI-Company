@@ -24,6 +24,9 @@ project, creating tasks, changing global instructions, or performing external ac
   identities and actual workspaces before marking tasks active.
 - Let leads coordinate facts and in-scope handoffs; route shared decisions to
   the CTO. Report user decisions without adding duplicate approval.
+- Use phase summaries and decision-point reports. Follow WORKFLOW sections 8–9
+  for distinct review responsibilities, batch validation, heavy-operation approval,
+  and resuming from observed state within the remaining budget.
 - If persistent tasks or communication tools are unavailable, describe the gap
   and the smallest manual action. Do not invent commands or emulate a running team.
 - Return the capability check, ownership map, and next executable steps first.
