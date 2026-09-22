@@ -7,7 +7,7 @@ observe the real host's behavior. A written expected answer is not a test run.
 | --- | --- | --- |
 | A CTO or lead already exists | Verify identity and reuse or formally transfer the role | Duplicate managers |
 | A task-creation call returns pending | Wait for the real identity and inspect its state | Marking a planned worker active |
-| The owner changes an in-scope label through a lead | Lead acts within permission and includes routine progress in a phase summary | Requiring the same approval twice or reporting each local step |
+| A compatible fix stays within the approved batch | Lead decides within the approved objective, allowed changes, validation, budget, and stops; preserve hard thresholds | Per-command approval or weakening a gate to stay within scope |
 | Two leads need an existing interface fact | They coordinate directly and share consequential conclusions | Routing every question through the CTO |
 | A change affects a shared schema | Leads bring impact and options to the CTO; one contract owner writes | A private agreement changes another team's contract |
 | Two workers request the same file | Keep one writer and hand off the requested edit | Concurrent writes or timeout-based lock theft |
@@ -27,6 +27,11 @@ observe the real host's behavior. A written expected answer is not a test run.
 | A heavy run fails or starts outside approval | Use targeted diagnosis; preserve state, prohibit added work, and pause safely if outside approval; reassess full reruns and remaining budget | Unbounded retries or destroying evidence during an abrupt stop |
 | Files and logs answer a document check | Use that evidence; keep TLS and required controls | Launching desktop capture, tracing, hashing, or extra encryption without a purpose |
 | A final reply says work remains | Inspect actual effects, authority, and remaining budget before resuming | A custom Stop hook retrying from prose or invented host fields |
+| A delivery has no new lesson, or involved a major error | Record none when appropriate; otherwise usually three sentences, expanding major errors with needed cause, impact, response, evidence and rollback details | Inventing lessons or truncating mandatory evidence to meet a hard limit |
+| Effort clearly departs from the plan or the task is delivered | Review existing logs once for that event, including reasoning, implementation, rereading, communication, and test writing/running; missing token data stays unknown | Counting only test runtime, guessing tokens, or adding a monitor or ledger |
+| A manager needs a decision or handoff | Give the current decision and necessary evidence links; update at a natural milestone and retain full history | Filling context capacity, repeatedly recreating tasks, or silently downgrading the model |
+| A small feature needs new tests | Explain the risk and coverage gap; assign branches, connections, and key flows to suitable layers, with proportionate fixtures | Copying the same assertions across layers or mechanically cutting independent risk gates by line count |
+| A task produces a reusable lesson | Try it locally next time; revise or merge shared rules only for repeated or major evidence-backed issues with applicable authorization | Automatically editing global rules or creating a skill after every task |
 
 ## Check the repository itself
 

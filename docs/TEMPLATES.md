@@ -11,7 +11,7 @@ Link existing decisions, contracts, and evidence instead of maintaining duplicat
 - Project and owner: [project name; human owner]
 - Objective and completion boundary: [observable outcome; where authorized delivery ends]
 - Acceptance and required gates: [criteria; project rule/contract links; evidence required]
-- Delivery batch: [included tasks and interactions; closing stop condition; next-batch backlog link]
+- Delivery batch: [one approval of objective, allowed changes, necessary validation, budget and stops; included tasks/interactions; next-batch backlog link]
 - Excluded scope: [work and external effects outside this assignment]
 - Authorization: [source; allowed edits, task creation, messages, Git delivery; separately scoped deployment, providers, spending, data, recurrence]
 - CTO and appointment: [one responsible task; authority; effective time]
@@ -35,6 +35,8 @@ For each registered task, keep one row or short entry with:
 Add milestone fields to that same entry: implementation, verification, integration, deployment.
 For each, give its status, owner, and evidence; use `out of scope` when the charter excludes it.
 For `pending`, retain the creation reference and readback status so a retry does not create a duplicate task.
+Leads decide compatible fixes within the approved batch. Reopen approval only for material changes to goals, shared contracts or ownership,
+permissions, risk, or budget, while preserving hard thresholds and required external authorization. Do not seek approval for each command.
 
 ## Worker brief
 
@@ -49,7 +51,7 @@ For `pending`, retain the creation reference and readback status so a retry does
 - Resource ownership: [ports, databases, sessions, generated outputs, test slots as relevant]
 - Reuse decision: [existing implementation/task; why this assignment is needed]
 - Execution limits: [verified model/reasoning; allowed short internal assistance; experiment time/usage cap]
-- Validation: [local unit/targeted checks; independent reviewer; combined batch candidate and final validation owner; required CI]
+- Validation: [specific risk and existing coverage gap for added tests; suitable unit/integration/browser layer; necessary review; combined validation owner and required CI]
 - Heavy operations: [existing approval link and remaining budget, including automatic triggers; or CTO decision needed before execution]
 - Reporting and stop conditions: [direct lead; completion, needed higher-level action, or expected scope/budget/stop overrun; unaffected work]
 - Return package: [candidate; changes; checks and evidence; risks; remaining work; dependency release; lessons]
@@ -61,15 +63,13 @@ For read-only work, prohibit edits, task creation, provider calls, and other ext
 
 - Event: [direction delivery, decision needed, heavy-operation request, material owner instruction, or required handoff; time]
 - Routing: [sender role; recipient role; related task and decision reference]
-- Owner intent: [request in faithful wording; source; change from the prior agreement]
-- Lead interpretation: [what the request means for this direction; uncertainty, if any]
-- Facts and evidence: [observed result; artifact or commit; limitations]
-- Actions: [already executed; next action; responsible party]
-- Impact: [scope, priority, acceptance, authorization, shared interfaces, dependencies, material risks]
-- Decision needed: [specific choice and options; or “none; continuing under existing authorization”]
+- Current decision or requested action: [specific choice; next owner; material impact or deviation]
+- Necessary evidence: [links to observed result and full original; candidate and relevant limitations]
+- Owner intent, when relevant: [faithful request/source, distinguished from interpretation]
 - Delivery: [sent or pending; confirm receipt only when a handoff depends on it; prior-send check before retry]
 
-Leads send material owner interactions to the CTO before the affected delivery closes. Combine routine progress into phase summaries.
+Leads send material owner interactions to the CTO before the affected delivery closes. Update short handoffs at natural milestones;
+link history instead of repeating it or recreating tasks. Context capacity is not a target for message length.
 Workers report completion, problems needing higher-level action, or expected scope/budget/stop overruns only to their lead.
 Fix ordinary errors locally and retain evidence. Do not send routine acknowledgments or unchanged relays.
 Sending this update does not itself request another approval for an authorized owner decision.
@@ -108,9 +108,16 @@ If execution starts outside approval, preserve state, start no additional work, 
 - Remaining work and risks: [mandatory gate still open; blocker and resolver; optional follow-up]
 - Dependency release: [deliverable and condition; receiving lead's acknowledgment]
 - Closure: [required archives/handoff; lead recommendation; CTO readback and final status]
+- Total effort: [existing-log review at delivery or a clear deviation; reasoning, implementation, rereading, communication, test writing/running; token data or unknown]
+- Lesson: [usually three sentences: largest avoidable waste; cause; one specific next-task change; or none]
 
+For major errors, repeated failures, or complex handoffs, include the root cause, impact, response, evidence, and rollback details needed for the case.
+Do not hard-limit length or omit required evidence. Keep the complete original in one place and link it; no new ledger or monitor is needed.
+Apply ordinary lessons locally in the next task. Shared-rule changes need a repeated or major issue with clear evidence and the applicable writing authority.
 Before reusing evidence, inspect code, dependencies, environment, configuration, tested scope, and mandatory gates.
 After a failure, fix and check the affected path first, then decide which full checks need repeating within the approved budget.
+Use unit tests for branches, integration tests for connections, and browser tests for key flows; avoid copying one assertion across layers or oversized fixtures.
+Preserve independent risk gates and the agreed validation boundary; line count alone is not a reason to remove tests.
 Use files, logs, and tests when sufficient; visual capture, traces, hashes, or additional encryption need an actual purpose.
 If a required gate is blocked, keep it open and name the missing condition. Do not write “done” for a partially fulfilled boundary.
 
