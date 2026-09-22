@@ -139,8 +139,12 @@ or before they expect to exceed scope, budget, or a stop condition. They fix ord
 Leads arrange independent review when risk or project requirements call for it, resolve matters within their direction, and report direction deliveries, matters requiring CTO decisions,
 or requests for heavy operations under section 9. Management messages give the current decision or requested action and links to the necessary evidence.
 Keep owner intent distinct from interpretation when reporting a decision. Required ownership and dependency handoffs still need confirmation.
-Update short handoffs at natural milestones, preserving access to the full history. Context capacity is available space, not a content target for each turn.
-Do not repeatedly recreate tasks or discard history to shorten context, and do not silently downgrade the agreed model or reasoning setting.
+Honor the owner's supported context-capacity choice and its purpose of preserving meaning across long work. This protocol imposes no universal capacity.
+Long history or high token usage alone is not waste. Do not lower capacity or compaction thresholds, compact early, or frequently switch tasks for that reason.
+Reduce repeated messages and repeated large context injections. Short milestone summaries are indexes to original constraints, owner decisions, and negative results, not replacements.
+When host compaction is unavoidable or ownership transfers formally, preserve the key original meaning, current decisions, and original-record references.
+Read them back before continuing affected work; do not guess missing context or stop the whole task when independent authorized work can continue.
+Do not silently downgrade the agreed model or reasoning setting.
 
 Leads MUST report owner interactions that affect scope, priority, acceptance, authority, shared interfaces, or material risk to the CTO promptly and before closing the affected delivery.
 Routine preferences, questions, and progress belong in delivery or necessary handoff summaries, not scheduled status messages. Preserve enough source context to avoid changing the owner's meaning.
@@ -151,9 +155,10 @@ or poll frequently for unchanged status. Prefer completion events and inspect st
 
 ## 7. Handle dependencies and blockers
 
-- Name the producer, exact artifact or contract, expected version, release condition, and consumer; avoid “wait for the other team.”
-- The receiving lead MUST inspect the artifact and acceptance evidence before releasing dependent work.
-- Leads SHOULD resolve factual mismatches within existing scope, then escalate unresolved design or ownership conflicts to the CTO with options.
+- Name the producer, consumer, artifact/version, and release condition. Before dependent implementation, agree on one shared minimal interface example and state-transition meanings: actual fields, identity/version, normal/error results, initial/terminal states, empty/not-run values, and apply behavior only where applicable.
+- Prefer existing non-sensitive output from the actual producer or run its code locally with synthetic input, without real user data or live provider calls. If the producer is not implemented, label the shared example provisional and unverified, continue independent work, and reconcile it with the real implementation before integration.
+- Test fixtures MUST follow that shared example and contract rather than guess the protocol. The receiving lead MUST inspect the real artifact and acceptance evidence before releasing dependent work.
+- Leads resolve ordinary details within the aligned contract without per-field CTO approval; escalate material shared-boundary changes or unresolved ownership conflicts with options.
 - For circular waits, the CTO assigns an initial contract or minimum shared deliverable and revises the dependency order.
 - A blocked worker reports through its lead and continues independent authorized work. It MUST NOT widen scope or bypass a required gate.
 - Retry only when new evidence or changed conditions justify it and the agreed limit permits it. Repeated failure is not evidence of success.
@@ -161,14 +166,19 @@ or poll frequently for unchanged status. Prefer completion events and inspect st
 
 ## 8. Verify, integrate, and close
 
-1. At batch start, the CTO approves the objective, allowed changes, necessary validation, budget, and stop conditions once in the existing brief. Leads decide compatible fixes within that boundary without per-command approval. Escalate material changes under section 6; retain the hard thresholds and heavy-operation requirements in section 9. New requirements go into the next batch. If closure would exceed the stop condition, the CTO MUST explicitly defer affected work or adjust the batch within existing authorization; it cannot silently drop accepted scope or weaken a required gate.
+At batch start, map every known requirement to its owner and acceptance evidence in the existing task record. Cover applicable user capabilities,
+producers/consumers, state persistence and failure behavior, required measurements, integration, validation, deliverables, and external dependencies.
+A short task may need only a few lines; no new questionnaire, meeting, or requirements platform is needed. The smallest sufficient implementation must cover the complete agreed goal.
+Align that goal once, then implement in small steps with targeted feedback. This does not require one large commit, zero iteration, or designing future features in advance.
+
+1. The CTO approves the batch objective, allowed changes, necessary validation, budget, and stop conditions once in the existing brief. Leads decide compatible fixes within that boundary without per-command approval. Escalate material changes under section 6; retain the hard thresholds and heavy-operation requirements in section 9. Reassess new requirements within authorization, placing them in the next batch unless an explicit batch adjustment is authorized. If closure would exceed the stop condition, the CTO MUST explicitly defer affected work or adjust the batch within existing authorization; it cannot silently drop accepted scope or weaken a required gate.
 2. Workers first run local unit tests and necessary targeted checks, then return their artifact, candidate identity, commands/results, evidence, and limitations. Leads check requirements and evidence and arrange independent review when complexity, risk, or project rules require it; a small fix does not automatically create a reviewer task.
 3. The CTO reviews necessity, duplicate work, cross-direction effects, and delivery readiness during dispatch and candidate acceptance. Extra inspection responds to scope growth, duplication, repeated failures, or expected budget overruns. Do not create a periodic inspection timer or repeat the same review at each layer.
-4. The CTO assigns one integration queue and one integration writer through the responsible lead. Combine all included tasks into one candidate, then run the batch's final full validation covering those tasks and their interactions under the approval in section 9. Do not run the entire project suite separately for each direction or wait for every future backlog item. Preserve project-required gates and repetitions.
+4. The CTO assigns one integration queue and one integration writer through the responsible lead. Once all required batch objectives have candidates with their targeted checks and necessary review complete, combine them for final full validation covering every included task and interaction under section 9. Do not run the entire project suite separately for each direction or wait for every future backlog item. Preserve project-required gates and repetitions.
 5. Bind tests, review, and CI to the candidate and relevant configuration. For uncommitted work, record a reproducible snapshot. Before reusing evidence after a change, inspect code, dependencies, environment, configuration, tested scope, and mandatory gates. Record what remains applicable; satisfy required same-commit checks on the resulting candidate.
 6. On failure, diagnose and fix with targeted checks first, then determine which final full checks need repeating and whether the approved budget covers them. Passing old evidence does not approve changed behavior.
 7. Perform authorized delivery steps only after required tests, independent review, and CI pass. Report implementation, verification, integration, deployment, and observed product behavior separately.
-8. The lead checks the completion boundary and handoff; the CTO closes the batch after reading the necessary evidence. Unrelated future work does not keep an accepted batch open.
+8. Stage deliveries state what remains unfinished. The lead checks the complete coverage map and handoff; the CTO closes the batch only after reading the necessary evidence for all required objectives. Do not declare full completion while a known capability, required measurement such as cost, or required group remains missing. Unrelated future work does not keep an accepted batch open.
 
 For added tests, explain the concrete risk and gap in existing coverage in the validation note. Unit tests check branches, integration tests check component connections,
 and browser tests check key user flows. Avoid copying the same assertion across all three layers or building large fixtures for a small feature.

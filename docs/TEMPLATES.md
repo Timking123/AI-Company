@@ -12,6 +12,7 @@ Link existing decisions, contracts, and evidence instead of maintaining duplicat
 - Objective and completion boundary: [observable outcome; where authorized delivery ends]
 - Acceptance and required gates: [criteria; project rule/contract links; evidence required]
 - Delivery batch: [one approval of objective, allowed changes, necessary validation, budget and stops; included tasks/interactions; next-batch backlog link]
+- Coverage in this record: [all known requirements -> owner and acceptance evidence; applicable user capabilities, producers/consumers, persistence/failures, measurements, integration, validation, deliverables, external dependencies]
 - Excluded scope: [work and external effects outside this assignment]
 - Authorization: [source; allowed edits, task creation, messages, Git delivery; separately scoped deployment, providers, spending, data, recurrence]
 - CTO and appointment: [one responsible task; authority; effective time]
@@ -37,6 +38,8 @@ For each, give its status, owner, and evidence; use `out of scope` when the char
 For `pending`, retain the creation reference and readback status so a retry does not create a duplicate task.
 Leads decide compatible fixes within the approved batch. Reopen approval only for material changes to goals, shared contracts or ownership,
 permissions, risk, or budget, while preserving hard thresholds and required external authorization. Do not seek approval for each command.
+Use a few lines for short tasks; do not add a questionnaire or shrink the agreed goal to fit a minimal solution. Complete goal alignment permits
+small implementation steps and targeted feedback. Reassess new requirements within authorization rather than silently changing the batch.
 
 ## Worker brief
 
@@ -47,7 +50,7 @@ permissions, risk, or budget, while preserving hard thresholds and required exte
 - Prohibited scope: [other owners' files; protected configuration/data; external side effects]
 - Workspace and baseline: [worktree; branch; exact assigned base; clean-start evidence or explicit preservation brief]
 - Non-Git or read-only mode: [applicable alternative; content snapshot; no artificial branch or initialization]
-- Dependencies and contracts: [producer; artifact/version; release condition; shared contract owner]
+- Dependencies and contracts: [producer/consumer; one shared minimal interface example and state meanings; verified or provisional source; artifact/version; release condition; contract owner]
 - Resource ownership: [ports, databases, sessions, generated outputs, test slots as relevant]
 - Reuse decision: [existing implementation/task; why this assignment is needed]
 - Execution limits: [verified model/reasoning; allowed short internal assistance; experiment time/usage cap]
@@ -69,7 +72,9 @@ For read-only work, prohibit edits, task creation, provider calls, and other ext
 - Delivery: [sent or pending; confirm receipt only when a handoff depends on it; prior-send check before retry]
 
 Leads send material owner interactions to the CTO before the affected delivery closes. Update short handoffs at natural milestones;
-link history instead of repeating it or recreating tasks. Context capacity is not a target for message length.
+use summaries as indexes to original constraints, decisions, and negative results. Honor the owner's context choice; long history or high token use
+alone does not justify lower capacity or compaction thresholds, early compaction, or repeated task switching. Reduce duplicate messages and large reinjections.
+For unavoidable compaction or formal transfer, preserve and verify key original meaning, current decisions, and original-record links before affected work resumes.
 Workers report completion, problems needing higher-level action, or expected scope/budget/stop overruns only to their lead.
 Fix ordinary errors locally and retain evidence. Do not send routine acknowledgments or unchanged relays.
 Sending this update does not itself request another approval for an authorized owner decision.
@@ -87,6 +92,7 @@ If execution starts outside approval, preserve state, start no additional work, 
 
 - Producer and consumer: [responsible leads and tasks]
 - Required deliverable: [artifact or contract; exact commit/version; approved location]
+- Shared example: [actual non-sensitive producer output or local producer code with synthetic input; applicable fields/identity/version, success/error, initial/terminal, empty/not-run, apply semantics; no real user data or live providers]
 - Release condition: [observable criteria the receiver must verify before dependent work begins]
 - Evidence: [tests, review, relevant limitations; artifact readback]
 - Ownership: [current file/resource owner; changes require formal transfer when applicable]
@@ -94,10 +100,13 @@ If execution starts outside approval, preserve state, start no additional work, 
 - Next action: [owner; sequencing; unaffected work that can proceed]
 - CTO update: [material conclusion; unresolved shared-design, ownership, priority, or acceptance decision]
 
+If the producer is not implemented, mark the example provisional/unverified, continue independent work, and assign reconciliation before integration.
+Fixtures follow the shared contract and example. The responsible lead handles ordinary aligned details; material shared-boundary changes go to the CTO.
+
 ## Acceptance and delivery record
 
 - Assignment and acceptance boundary: [brief link; accountable lead; authorized endpoint]
-- Batch coverage: [included tasks and interactions; combined candidate; explicitly approved deferrals or scope changes]
+- Batch coverage: [each required objective from the initial coverage map and its evidence; included interactions; combined candidate; explicit deferrals or scope changes]
 - Candidate identity: [repository/workspace; exact commit or reproducible content snapshot; configuration and time]
 - Delivered changes: [artifact paths and observable behavior; deviations from the brief]
 - Acceptance evidence: [criterion -> result -> evidence location]
@@ -105,7 +114,7 @@ If execution starts outside approval, preserve state, start no additional work, 
 - Independent review: [reviewer; candidate reviewed; findings resolved or outstanding; applicable requirement]
 - CI and integration: [same-commit checks; result; integration owner; resulting candidate and revalidation]
 - Delivery milestones: [implementation / verification / integration / deployment, each with status, owner, evidence, or explicit out-of-scope reason]
-- Remaining work and risks: [mandatory gate still open; blocker and resolver; optional follow-up]
+- Remaining work and risks: [unfinished scope if this is a stage; mandatory gate still open; blocker and resolver; optional follow-up]
 - Dependency release: [deliverable and condition; receiving lead's acknowledgment]
 - Closure: [required archives/handoff; lead recommendation; CTO readback and final status]
 - Total effort: [existing-log review at delivery or a clear deviation; reasoning, implementation, rereading, communication, test writing/running; token data or unknown]

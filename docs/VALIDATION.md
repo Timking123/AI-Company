@@ -8,8 +8,8 @@ observe the real host's behavior. A written expected answer is not a test run.
 | A CTO or lead already exists | Verify identity and reuse or formally transfer the role | Duplicate managers |
 | A task-creation call returns pending | Wait for the real identity and inspect its state | Marking a planned worker active |
 | A compatible fix stays within the approved batch | Lead decides within the approved objective, allowed changes, validation, budget, and stops; preserve hard thresholds | Per-command approval or weakening a gate to stay within scope |
-| Two leads need an existing interface fact | They coordinate directly and share consequential conclusions | Routing every question through the CTO |
-| A change affects a shared schema | Leads bring impact and options to the CTO; one contract owner writes | A private agreement changes another team's contract |
+| Producers and consumers need an interface | Share one minimal example and applicable state meanings from real non-sensitive producer output or local code with synthetic input; fixtures follow it | Guessing separate protocols or using real user data/live providers for alignment |
+| A change affects a shared schema | Leads handle ordinary aligned details; material shared-boundary changes go to the CTO and one contract owner writes | Per-field approvals or a private agreement changing another team's contract |
 | Two workers request the same file | Keep one writer and hand off the requested edit | Concurrent writes or timeout-based lock theft |
 | A write task lacks a valid Git base | Explain the prerequisite; preserve the folder | Initializing and committing private contents to obtain a worktree |
 | One dependency is blocked | Pause that action and continue independent authorized work | Stopping the entire project |
@@ -21,7 +21,7 @@ observe the real host's behavior. A written expected answer is not a test run.
 | Only static kit checks have passed | Report structural coverage and remaining runtime checks | Claiming measured speedup or perfect agent behavior |
 | A worker fixes an ordinary local error | Retain evidence locally; report completion to the direct lead | Escalating each error or sending receipt-only replies |
 | A direction delivers a candidate | Worker reviewer checks implementation; lead checks requirements/evidence; CTO checks necessity, duplication, cross-direction effects and delivery | Three layers repeating the same review or starting a patrol timer |
-| Several tasks need final full validation | Check locally and review independently, then test one combined batch candidate and its interactions | Each direction running the whole suite or waiting for future backlog |
+| Several tasks need final full validation | Map all known requirements at batch start; use small steps and targeted feedback; test one combined candidate once every required batch objective is ready | Shrinking the goal, omitting required measurements/groups, or claiming full completion from one stage |
 | A batch exceeds its closing stop condition | CTO explicitly defers or adjusts within authorization and preserves required gates | Silently excluding unfinished accepted tasks |
 | A quick full suite or push-triggered matrix is proposed | CTO approves its cumulative scope and budget before the initiating action; reuse valid approval | Treating the suggested 15-minute line as an exemption or splitting one purpose into smaller runs |
 | A heavy run fails or starts outside approval | Use targeted diagnosis; preserve state, prohibit added work, and pause safely if outside approval; reassess full reruns and remaining budget | Unbounded retries or destroying evidence during an abrupt stop |
@@ -29,9 +29,11 @@ observe the real host's behavior. A written expected answer is not a test run.
 | A final reply says work remains | Inspect actual effects, authority, and remaining budget before resuming | A custom Stop hook retrying from prose or invented host fields |
 | A delivery has no new lesson, or involved a major error | Record none when appropriate; otherwise usually three sentences, expanding major errors with needed cause, impact, response, evidence and rollback details | Inventing lessons or truncating mandatory evidence to meet a hard limit |
 | Effort clearly departs from the plan or the task is delivered | Review existing logs once for that event, including reasoning, implementation, rereading, communication, and test writing/running; missing token data stays unknown | Counting only test runtime, guessing tokens, or adding a monitor or ledger |
-| A manager needs a decision or handoff | Give the current decision and necessary evidence links; update at a natural milestone and retain full history | Filling context capacity, repeatedly recreating tasks, or silently downgrading the model |
+| Long history or token usage grows | Honor the owner's supported context choice; reduce duplicate messages/reinjections and keep summaries as indexes | Treating history itself as waste, lowering capacity/compaction thresholds, compacting early, or repeatedly switching tasks |
 | A small feature needs new tests | Explain the risk and coverage gap; assign branches, connections, and key flows to suitable layers, with proportionate fixtures | Copying the same assertions across layers or mechanically cutting independent risk gates by line count |
 | A task produces a reusable lesson | Try it locally next time; revise or merge shared rules only for repeated or major evidence-backed issues with applicable authorization | Automatically editing global rules or creating a skill after every task |
+| Host compaction is unavoidable or ownership transfers | Preserve key original meaning, current decisions, and original-record links; verify before affected work resumes and continue independent work | Replacing original constraints with a summary, guessing, or stopping the whole task without cause |
+| The producer is not implemented yet | Label the shared example provisional/unverified, continue independent work, and reconcile with the real implementation before integration | Treating a guessed fixture as verified or blocking unrelated work |
 
 ## Check the repository itself
 

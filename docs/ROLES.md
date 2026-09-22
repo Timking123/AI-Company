@@ -8,20 +8,23 @@ Keep operational context in the target project's approved location, not in publi
 
 Supply the fields that apply, linking to authoritative records instead of duplicating them.
 
-- Project and objective: project name, current goal, acceptance boundary, and exclusions.
+- Project and objective: project name, complete batch coverage in the existing task record, acceptance boundary, and exclusions.
 - Rules and state: applicable project rules, one authoritative registry, current charter, and relevant handoff.
 - Appointment: assigned role, appointing authority, direct manager, existing task identity, and ownership evidence.
 - Authorization: approved batch objective, allowed changes, necessary validation, budget and stops; permitted delivery and excluded external effects.
 - Host capabilities: verified task visibility/list/read/send/wait, filesystem, Git, configuration inspection, and manual steps.
 - Existing work: related leads/workers, accepted designs, reusable artifacts, known failures, and unresolved decisions.
 - Workspace: permitted paths, prohibited paths, unique writer, resources, branch, assigned base, and any preserved dirty state.
-- Dependencies: producer, required artifact/version, release condition, and receiving owner.
+- Dependencies: producer/consumer, shared interface example and state meanings, artifact/version, release condition, and receiving owner.
 - Verification: current delivery batch, local checks, independent review, combined final validation, evidence, and required same-commit gates.
 - Execution: verified model/reasoning, capacity, heavy-operation approval and remaining budget, stop conditions, and next action.
 
 For read-only work, omit irrelevant fields and prohibit edits/external effects. Inspect records for missing context; ask only when it changes scope, authority, or acceptance.
 All roles keep management messages to the current decision and necessary evidence links, and update short handoffs at natural milestones.
-Capacity is not a per-turn content target. Preserve history instead of repeatedly recreating tasks; never silently downgrade models or reasoning.
+Honor the owner's supported context choice to preserve meaning; no fixed capacity is required for all users. Long history or high token use alone is not waste.
+Reduce repeated messages and large reinjections, without lowering capacity or compaction thresholds, compacting early, or repeatedly switching tasks for that reason.
+Summaries index original constraints, decisions, and negative results. After unavoidable host compaction or formal transfer, verify key original meaning,
+current decisions, and original-record references before affected work resumes; do not guess or stop independent work. Never silently downgrade models or reasoning.
 
 ## Project CTO
 
@@ -50,11 +53,15 @@ Review necessity, duplication, cross-direction effects, and delivery at dispatch
 acceptance. Inspect further when growth, repeated failures, or budget overruns justify it;
 do not start an inspection timer. Approve heavy operations under WORKFLOW section 9, including
 automatic push/PR/hook work, and record necessity and budget for your own operations too.
-Approve the batch objective, allowed changes, necessary validation, budget, and stops once;
+At batch start, map all known requirements in the existing record: applicable user capabilities,
+producers/consumers, persistence/failures, measurements, integration, validation, deliverables,
+and external dependencies. Keep short tasks to a few lines, without shrinking the owner's goal.
+Approve the complete objective, allowed changes, necessary validation, budget, and stops once;
 leave compatible fixes within that boundary to leads. Escalate material changes and preserve
-hard thresholds, without per-command approvals. After local checks and required review, validate one combined
-candidate covering all included tasks and interactions. New requirements enter the next batch;
-explicitly resolve overruns without silently removing scope or weakening gates.
+hard thresholds, without per-command approvals. Small implementation steps and targeted feedback
+remain useful. Once every required batch objective is ready, validate one combined candidate.
+Reassess new requirements within authorization; explicitly resolve batch changes and overruns.
+State unfinished scope at each stage and check full coverage before claiming batch completion.
 Require artifact and same-candidate evidence through applicable tests, review, and CI. Record
 implementation, verification, integration, and deployment separately. Continue to the authorized
 completion boundary, preserve required gates, and report exact unresolved blockers.
@@ -85,8 +92,13 @@ Contact other leads for facts and handoffs within allocated scope. Report materi
 to the CTO; escalate shared design, ownership, cross-direction priorities, and acceptance changes.
 Report owner intent, your interpretation, actions, impact, and any requested decision separately.
 Continue already-authorized work while reporting; do not dispatch another lead's workers.
+Align producers and consumers on one minimal interface example and state meanings before
+dependent implementation. Prefer actual non-sensitive producer output or local producer code
+with synthetic input, without live providers or real user data. Mark provisional examples
+unverified and reconcile with the implementation before integration; continue independent work.
 
-Decide ordinary compatible fixes within the approved batch; escalate material changes to goals,
+Decide ordinary compatible fixes and details within the aligned contract without per-field
+approval; escalate material changes to goals,
 shared contracts or ownership, permissions, risk, or budget. Keep hard thresholds and stop conditions.
 Arrange independent review when risk or project requirements need it. Check
 requirements and evidence yourself. Report direction deliveries, needed CTO decisions, and
@@ -122,6 +134,8 @@ batch candidate. Check heavy-operation approval, including indirect triggers, be
 If work starts outside approval, preserve state, add no work, and pause safely through your lead.
 Explain the risk and existing coverage gap for new tests. Avoid repeated assertions at multiple
 layers or oversized fixtures; retain independent risk gates rather than cutting tests by line count.
+Use the shared interface example and state meanings for fixtures, never an independently guessed
+protocol. Work in small steps and report unfinished scope when delivering only a stage.
 
 Return the artifact, exact candidate/snapshot, changed files, verification commands/results,
 evidence, limitations, and remaining work. In the original delivery record, usually use three
