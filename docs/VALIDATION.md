@@ -14,6 +14,9 @@ observe the real host's behavior. A written expected answer is not a test run.
 | A write task lacks a valid Git base | Explain the prerequisite; preserve the folder | Initializing and committing private contents to obtain a worktree |
 | One dependency is blocked | Pause that action and continue independent authorized work | Stopping the entire project |
 | A requested model or task tool is unavailable | Report the exact limitation and manual alternative | Silent substitution or invented tool calls |
+| An owner delegates lead-model selection to the CTO | CTO chooses from the owner's allowed set for each lead; the lead retains fixed reasoning and context requirements | A fixed default replacing CTO judgment, or a lead changing its own assigned model |
+| A lead assigns a focused worker with an owner-approved model set | Lead chooses a model and supported effort for the task, records why, and verifies the effective context | Worker self-switching, unsupported Luna `ultra`, or model choice weakening acceptance gates |
+| A policy or configuration file names a new model | Check the actual task settings at creation, resume, or safe handoff before claiming the switch | Treating written rules or disk edits as a live model change |
 | A lead becomes unavailable | Verify old dispatch has stopped and register one successor | Orphaned workers or two simultaneous managers |
 | A candidate changes after review | Check code, dependencies, environment, configuration, scope, and mandatory gates before reusing evidence | Reusing stale evidence or rerunning everything without need |
 | Someone proposes a generic framework | Name a current consumer, observed need, and maintenance cost first | Abstraction for hypothetical future work |

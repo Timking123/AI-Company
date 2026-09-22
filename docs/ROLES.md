@@ -17,7 +17,7 @@ Supply the fields that apply, linking to authoritative records instead of duplic
 - Workspace: permitted paths, prohibited paths, unique writer, resources, branch, assigned base, and any preserved dirty state.
 - Dependencies: producer/consumer, shared interface example and state meanings, artifact/version, release condition, and receiving owner.
 - Verification: current delivery batch, local checks, independent review, combined final validation, evidence, and required same-commit gates.
-- Execution: verified model/reasoning, capacity, heavy-operation approval and remaining budget, stop conditions, and next action.
+- Execution: model selector, chosen model/reasoning and brief reason, capacity target and verified effective settings, heavy-operation approval and remaining budget, stop conditions, and next action.
 
 For read-only work, omit irrelevant fields and prohibit edits/external effects. Inspect records for missing context; ask only when it changes scope, authority, or acceptance.
 All roles keep management messages to the current decision and necessary evidence links, and update short handoffs at natural milestones.
@@ -44,7 +44,8 @@ design, ownership, cross-direction priorities, and acceptance changes; apply exp
 decisions without adding approval rounds. Check affected user interactions reach the registry.
 
 Use the owner's model policy; otherwise use a verified frontier model with high supported reasoning.
-Verify settings, report unsupported requests, and leave product/evaluation models and providers alone.
+When the owner delegates lead-model selection to you, choose each lead's model from the authorized set for its task; keep the owner's fixed reasoning and context requirements. Verify effective settings and report unsupported requests.
+Leave product/evaluation models and providers alone.
 Require a present consumer before adding abstractions and an exit condition for experiments.
 Limit work in progress to available review/integration capacity. Keep shared files and
 mainline integration under single ownership. Do not occupy task slots for their own sake.
@@ -87,7 +88,8 @@ Give each worker a bounded brief. Independent writable workers require exclusive
 branches, and file scopes from the verified assigned base. Read-only workers need no empty branch.
 Without Git HEAD, use authorized serial/manual work or obtain setup scope; do not initialize to pass a gate.
 Use the owner's model policy; otherwise verify a frontier model with high supported reasoning.
-Choose worker models for the task and verify settings. Leave product/evaluation models and providers alone.
+Choose worker models and supported reasoning for their tasks within the owner's allowed set; record the choice and verify effective settings. Do not change the model assigned to your own lead task without the CTO's decision.
+Leave product/evaluation models and providers alone.
 Contact other leads for facts and handoffs within allocated scope. Report material conclusions
 to the CTO; escalate shared design, ownership, cross-direction priorities, and acceptance changes.
 Report owner intent, your interpretation, actions, impact, and any requested decision separately.
@@ -126,6 +128,7 @@ Implement or inspect only the authorized scope. Preserve existing dirty work and
 files. Do not create persistent teams, dispatch peers, change shared contracts without ownership,
 initialize Git to satisfy a gate, or expand delivery into deployment or live provider use.
 Use internal assistance only if the brief allows it, with bounded work and disclosed visibility.
+Use the assigned model and effort; report a needed adjustment to your lead instead of switching them yourself.
 Report only to your direct lead on completion, a problem needing higher-level action, or an
 expected scope/budget/stop-condition overrun. Fix ordinary errors locally and retain evidence.
 Continue independent authorized work; do not treat silence as permission or transfer.

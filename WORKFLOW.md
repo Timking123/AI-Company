@@ -199,6 +199,19 @@ The default policy is a frontier general-purpose or coding model with high suppo
 The owner's explicit choice takes precedence. A lead selects worker models according to task difficulty, error impact, and required capabilities.
 An optional quality-first policy uses the latest available flagship and highest supported reasoning after verifying the host and account.
 Use a literal `ultra` setting only if the host supports it and the owner requests it; never invent a reasoning option.
+
+An owner MAY instead define a role-specific model set and delegate selection within that set. For example, a GPT-6 policy can assign:
+
+| Role | Model choice | Reasoning | Context target |
+| --- | --- | --- | --- |
+| Project CTO | `gpt-6-astra` | `ultra` | 1,000,000 tokens |
+| Direction lead | The CTO chooses `gpt-6-astra` or `gpt-6-sol` for the task, without a fixed default | `ultra` | 1,000,000 tokens |
+| Worker | Its lead chooses `gpt-6-astra`, `gpt-6-sol`, or `gpt-6-luna` and a supported effort for the task | Host-supported effort; do not assign `ultra` to Luna where it is unavailable | 272,000 tokens; 240,000-token compaction target when supported |
+
+This is an example of an owner's policy, not a default imposed on every adopter. The CTO selects a lead's model; a lead selects its workers' model and effort. Neither role changes a model assigned by its manager without that manager's decision. Selection considers complexity, uncertainty, error impact, capability, repeatability, and cost. Sol can suit everyday development and complex coding, Luna clear repeatable work, and Astra difficult cross-tool or cross-module work; these are guides, not fixed task-to-model mappings. A model choice never reduces the agreed goal, context capacity, validation gates, or external-authorization requirements.
+
+Put the selector, chosen model, effort, brief reason, and context target in the existing task brief. A context target is capacity, not expected per-turn usage or a billing allowance. Check the model's native limit and the host's effective task configuration; written rules or disk settings do not prove that a running task has changed. When a requested model or effort is unavailable, the original selector may choose another authorized combination. If none satisfies the policy, report the exact gap and pause only dependent actions. Apply a change at a safe handoff boundary without losing in-progress work. Do not change shared configuration back and forth to simulate per-task settings.
+
 At creation, transfer, or resume, check model availability and actual task configuration; record the model, reasoning setting, time, and any unverifiable part.
 If a requested setting is unavailable, report the discrepancy and seek a decision only when no authorized fallback exists.
 A policy file or requested setting does not prove a running task changed. Preserve work and use a supported handoff when changing execution settings.
