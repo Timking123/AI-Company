@@ -11,6 +11,10 @@
 
 ---
 
+**Workflow 3.1.0** uses one [canonical protocol](WORKFLOW.md), with host-specific guidance in local adapters. The normative specification is maintained in Chinese. The English overview remains a navigation aid. See [layer ownership](docs/LAYERS.md), [engineering checks](docs/ENGINEERING.md), [research](docs/RESEARCH.md), [tool admission](docs/TOOL_ADMISSION.md), and the [change record](docs/CHANGELOG.md).
+
+Version 3.1.0 makes normal-input representative chains a pre-batch check, preserves the first safe failure cause, and keeps requirements and remaining work current. Internal budget adjustments stay within the user's hard limits. Rule-version alignment and new-run loading are verified separately from business delivery and older sessions.
+
 A dozen agent tabs can feel like a small, noisy office. Who owns that file? Did two teams just build the same thing? Why are you delivering everyone's messages?
 
 **Take the boss's chair:** set the goal, make the important calls, and review what ships. Your CTO coordinates the project; leads handle briefs, workers, dependencies, and evidence. Talk to either level without becoming the office mailroom.
@@ -102,19 +106,14 @@ independent lead sessions, verified extensions, or human relay. Native subagents
 do not automatically provide a persistent, nested company. Check your exact
 client, version, and permissions before creating teams.
 
-## A few rules that make the company work
+## Essential boundaries and the full protocol
 
-- **One worker, one manager.** A worker follows its creating lead or a formally registered successor. The CTO coordinates through leads.
-- **One file, one writer.** Independent write tasks get isolated checkouts and explicit scopes. Shared contracts and integration have named owners.
-- **Reuse before recruiting.** Check existing tasks, code, and decisions before creating another team or abstraction. Scale concurrent work to review and integration capacity.
-- **Report when action is needed.** Keep routine progress in phase summaries and one authoritative registry. Skip receipt-only messages, unchanged relays, and frequent polling. Material owner decisions still reach the CTO.
-- **Give each review a purpose.** Review workers inspect implementation; leads check requirements and evidence; the CTO checks necessity, duplication, cross-team effects, and delivery at dispatch and acceptance. Investigate warning signs without a patrol timer.
-- **Approve heavy work within a budget.** The CTO approves full-suite/multi-environment tests, large cross-module changes, long scans, and bulk calls/downloads/retries, including automatic push/PR/hook effects. Count work for the same purpose together. The suggested 15-minute escalation line is adjustable; fast full suites still need approval. Reuse valid approvals, preserve safe stop points, and retain separate user spending/deployment consent. See [the approval rule](WORKFLOW.md#9-model-and-execution-policy).
-- **Validate one delivery batch.** Run local unit tests, necessary targeted checks, and independent review first; then validate one combined candidate covering all included tasks and interactions. New needs enter the next batch. The CTO explicitly resolves closure overruns. Fix failures with targeted checks before deciding on full reruns; reuse evidence only after checking what changed and which gates remain mandatory.
-- **Collect evidence for a reason.** Prefer files, logs, and tests when sufficient. Screenshots, traces, hashes, and extra encryption need a concrete purpose; TLS and required controls remain. Resume from actual effects and remaining authority/budget, never from final-reply keywords or a prose-driven Stop retry.
-- **Keep useful lessons.** Leads keep scoped notes and reusable methods. The CTO decides which lessons belong in project rules.
+- Reuse valid authority within its scope and close safely when the user pauses.
+- Give each worker one direct manager and each write an explicit owner.
+- Protect credentials, original data, existing changes, and original failures.
+- Match delivery claims to verified scope and the user's outcome.
 
-Small fixes can stay with one lead. You do not need a company meeting to change a button label.
+The [workflow](WORKFLOW.md) maintains the complete conditions. Section 9 covers resources and time, section 8 covers verification and delivery, and [role guidance](docs/ROLES.md) assigns responsibilities. A bounded task can stay with one capable owner.
 
 ## Read the part you need
 

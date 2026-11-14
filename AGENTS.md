@@ -1,5 +1,7 @@
 # AI-Company: agent entry point
 
+The current protocol is 3.1.0. [WORKFLOW.md](WORKFLOW.md) is its single normative source. Host-specific and project-specific details have the separate owners documented in [LAYERS.md](docs/LAYERS.md).
+
 This repository is a workflow kit for a human-led AI engineering company.
 Reading, reviewing, or cloning it does not authorize adopting it in another
 project, creating tasks, changing global instructions, or performing external actions.
@@ -19,6 +21,10 @@ project, creating tasks, changing global instructions, or performing external ac
   permissions, owners, and in-progress work.
 - Identify the actual project, current CTO and leads, available task tools,
   repository state, and verification commands before changing anything.
+- Classify technical sources by global, project, feature, window, and historical
+  scope before loading relevant content. Record the current source, read trigger,
+  writer, evidence date, and replacement links; check active references and
+  in-progress readers before authorized archival (WF04, WF18, LAYERS).
 - Establish one CTO per project. Reuse existing leads and worker assignments.
 - Give every worker one lead and an exclusive write scope. Confirm real task
   identities and actual workspaces before marking tasks active.
@@ -27,6 +33,12 @@ project, creating tasks, changing global instructions, or performing external ac
 - Use phase summaries and decision-point reports. Follow WORKFLOW sections 8–9
   for distinct review responsibilities, batch validation, heavy-operation approval,
   and resuming from observed state within the remaining budget.
+- Before a batch, exercise its affected representative chain through normal
+  production inputs and the actual component combination (WF05–WF09). Keep the
+  current requirement table updated and reuse applicable completed evidence (WF10).
+- Verify version and entry-point alignment. Report new-run loading, this session,
+  and older windows separately; rule adoption does not itself require stopping
+  business services (WF18).
 - If persistent tasks or communication tools are unavailable, describe the gap
   and the smallest manual action. Do not invent commands or emulate a running team.
 - Return the capability check, ownership map, and next executable steps first.
@@ -41,4 +53,5 @@ project, creating tasks, changing global instructions, or performing external ac
   elapsed time, token usage, and cost are different quantities.
 - Run `python scripts/validate.py` after edits. It checks the published kit's
   structure and links; it does not evaluate real agent behavior.
+- Run the relevant tests for changed utilities and scenario checks under [VALIDATION.md](docs/VALIDATION.md). Keep fixed-source review and observed behavior distinct.
 - Inspect README rendering and every changed image before publishing.

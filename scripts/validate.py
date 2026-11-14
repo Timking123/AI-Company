@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import struct
 import sys
@@ -17,6 +18,10 @@ REQUIRED = {
     "docs/VALIDATION.md", "docs/SOURCES.md", "docs/COMPATIBILITY.md", "docs/PRIVACY.md", "assets/company-hero.png",
     "assets/organization.svg", "assets/parallel.svg", "assets/social-preview.jpg", "scripts/validate.py",
     ".gitignore", ".gitattributes", ".github/workflows/docs.yml", ".github/ISSUE_TEMPLATE/tryout.yml",
+    "VERSION", "docs/ENGINEERING.md", "docs/RESEARCH.md", "docs/TOOL_ADMISSION.md",
+    "docs/LAYERS.md", "docs/CHANGELOG.md", "docs/USAGE.md", "validation/scenarios.json",
+    "scripts/check_scenarios.py", "scripts/usage_report.py", "tests/test_usage_report.py",
+    "validation/EXPECTATIONS.md", "tests/test_validate.py",
 }
 EXCLUDED = {".git", ".preview", ".ai-company", "__pycache__", "node_modules"}
 
@@ -50,8 +55,58 @@ def headings(text: str) -> set[str]:
     return result
 
 
+def validate_protocol(version: str, documents: dict[str, str], scenario_data: dict) -> list[str]:
+    """核现行版本、稳定控制与历史ID；不把结构完整性视为语义通过。"""
+    errors: list[str] = []
+    if not re.fullmatch(r"\d+\.\d+\.\d+", version):
+        errors.append("VERSION must contain one release version")
+    markers = {
+        "AGENTS.md": r"^The current protocol is (\d+\.\d+\.\d+)\.",
+        "WORKFLOW.md": r"^# AI-Company 工作流 (\d+\.\d+\.\d+)$",
+        "README.md": r"^\*\*Workflow (\d+\.\d+\.\d+)\*\*",
+        "README.zh-CN.md": r"^\*\*工作流(\d+\.\d+\.\d+)\*\*",
+        "docs/VALIDATION.md": r"^# (\d+\.\d+\.\d+)采用与回归验证$",
+    }
+    for name, pattern in markers.items():
+        if re.findall(pattern, documents.get(name, ""), re.M) != [version]:
+            errors.append(f"Current version marker must match VERSION: {name}")
+    workflow = documents.get("WORKFLOW.md", "")
+    controls = re.findall(r"^### (WF\d{2})\b", workflow, re.M)
+    expected_controls = {f"WF{number:02d}" for number in range(1, 21)}
+    if len(controls) != 20 or set(controls) != expected_controls:
+        errors.append("Workflow controls must contain WF01 through WF20 once")
+    if scenario_data.get("workflow_version") != version:
+        errors.append("Scenario version must match VERSION")
+    entries = scenario_data.get("scenarios", [])
+    if not isinstance(entries, list) or any(not isinstance(case, dict) for case in entries):
+        return errors + ["Scenario entries must be objects"]
+    ids = {case.get("id") for case in entries if isinstance(case.get("id"), str)}
+    legacy_ids = {f"R{number:02d}" for number in range(1, 53)} | {f"V{number:02d}" for number in range(1, 25)}
+    if not legacy_ids <= ids:
+        errors.append("Original 76 scenario IDs must be retained")
+    covered = {control for case in entries for control in case.get("controls", [])}
+    if covered != expected_controls:
+        errors.append("Scenario control coverage is incomplete or unknown")
+    expectation_ids = re.findall(r"^\| ([RV]\d{2}) \|", documents.get("validation/EXPECTATIONS.md", ""), re.M)
+    if len(expectation_ids) != len(set(expectation_ids)) or set(expectation_ids) != ids:
+        errors.append("Scenario expectation rows must cover each ID once")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
+    try:
+        import check_scenarios
+        scenario_data = check_scenarios.load_json(ROOT / "validation/scenarios.json")
+        errors.extend(check_scenarios.check(scenario_data))
+        names = ("AGENTS.md", "WORKFLOW.md", "README.md", "README.zh-CN.md", "docs/VALIDATION.md", "validation/EXPECTATIONS.md")
+        documents = {name: (ROOT / name).read_text(encoding="utf-8") for name in names}
+        version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+        if not safe_regular(ROOT / "VERSION"):
+            errors.append("VERSION must be a regular repository file")
+        errors.extend(validate_protocol(version, documents, scenario_data))
+    except (OSError, ValueError, TypeError) as error:
+        errors.append(f"Protocol structure unavailable: {type(error).__name__}")
     for name in sorted(REQUIRED):
         path = ROOT / name
         if not safe_regular(path) or path.stat().st_size == 0:
@@ -65,7 +120,7 @@ def validate() -> list[str]:
             continue
         if not path.is_file():
             continue
-        if path.suffix not in {".md", ".svg", ".py", ".yml"} and path.name not in {"LICENSE", ".gitignore", ".gitattributes"}:
+        if path.suffix not in {".md", ".svg", ".py", ".yml", ".json"} and path.name not in {"LICENSE", "VERSION", ".gitignore", ".gitattributes"}:
             continue
         try:
             content = path.read_text(encoding="utf-8")

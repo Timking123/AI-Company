@@ -1,148 +1,82 @@
-# Coordination templates
+# 最小任务与交付模板
 
-Use these fields with [WORKFLOW.md](../WORKFLOW.md) and the [role prompts](ROLES.md).
-Fill only relevant fields; a short task can use a few lines. These are copyable briefs, not a requirement to open six documents.
-Keep one authoritative project registry, preferably the existing one or `.ai-company/STATE.md` with authorized creation.
-The CTO alone writes that registry. Leads submit phase summaries and keep detailed notes only in their assigned locations.
-Link existing decisions, contracts, and evidence instead of maintaining duplicate status tables. Keep private operational details out of public examples.
+按实际需要填字段，使用原项目记录即可。规则正文见[WORKFLOW.md](../WORKFLOW.md)。
 
-## Project charter and registry entry
+## 目标与短批
 
-- Project and owner: [project name; human owner]
-- Objective and completion boundary: [observable outcome; where authorized delivery ends]
-- Acceptance and required gates: [criteria; project rule/contract links; evidence required]
-- Delivery batch: [one approval of objective, allowed changes, necessary validation, budget and stops; included tasks/interactions; next-batch backlog link]
-- Coverage in this record: [all known requirements -> owner and acceptance evidence; applicable user capabilities, producers/consumers, persistence/failures, measurements, integration, validation, deliverables, external dependencies]
-- Excluded scope: [work and external effects outside this assignment]
-- Authorization: [source; allowed edits, task creation, messages, Git delivery; separately scoped deployment, providers, spending, data, recurrence]
-- CTO and appointment: [one responsible task; authority; effective time]
-- Directions and leads: [bounded objective and accountable lead for each direction]
-- Authoritative registry: [one existing entry point or approved project-local file]
-- Host capability check: [time; visible durable tasks/list/read/send/wait; filesystem/Git/configuration; supported, unsupported, or unknown with evidence]
-- Manual steps: [unsupported operations; human action or authorized serial alternative]
-- Model policy: [owner choice or default; permitted models by role; who selects each model and effort; fixed reasoning/context targets; actual settings, verification time, and authorized fallback]
-- Existing work and reuse: [tasks/artifacts to continue; duplicate work avoided; unresolved ownership]
-- Baseline: [verified repository and exact assigned commit; required base checks; or explicit non-Git artifact snapshot]
-- Ownership and capacity: [shared-file/resource owners; integration writer; review capacity and WIP limit]
-- Dependencies and next action: [producer; deliverable/version; release condition; receiving owner]
-- Decisions and stop conditions: [open issue; decision owner; experiment cap or external condition]
+- 用户结果与验收数量、质量、环境、交付形式
+- 已有授权出处及这批范围
+- 责任人、原方向、维护源与候选
+- 真实依赖、未完工程、产物、消费者及相邻原子交件释放条件
+- 产品运行源、维护控制源及本次实际组合；正常输入与批前代表链
+- 实现、验证、审查、集成、失败补验、业务运行、等待和收口的完整估计，分别给总人时与墙钟时长
+- 真实起算点、上级检查点、用户硬限与实际窗口
+- 必需门、停止条件及可复用旧证据
 
-For each registered task, keep one row or short entry with:
+## 当前需求表
 
-| Task | Manager | Brief / ownership | Status | Next action / resolver | Candidate / evidence |
-| --- | --- | --- | --- | --- | --- |
-| [readable name and private task reference] | [one lead] | [brief; worktree/branch/file/resource allocation] | [planned/pending/active/blocked/ready/done/stopped] | [action and owner; release condition if blocked] | [commit or snapshot; evidence link] |
+每阶段更新同一张表，历史日志链接到原件，不替代当前状态。
 
-Add milestone fields to that same entry: implementation, verification, integration, deployment.
-For each, give its status, owner, and evidence; use `out of scope` when the charter excludes it.
-For `pending`, retain the creation reference and readback status so a retry does not create a duplicate task.
-Leads decide compatible fixes within the approved batch. Reopen approval only for material changes to goals, shared contracts or ownership,
-permissions, risk, or budget, while preserving hard thresholds and required external authorization. Do not seek approval for each command.
-Use a few lines for short tasks; do not add a questionnaire or shrink the agreed goal to fit a minimal solution. Complete goal alignment permits
-small implementation steps and targeted feedback. Reassess new requirements within authorization rather than silently changing the batch.
+| 需求与用户后继决定出处 | 责任人及当前产物 | 已证范围与复用证据 | 真实未完与下一动作 |
+| --- | --- | --- | --- |
+| 虚构需求A；本轮明确实施授权 | 原工作窗口；候选A | 正常构造入口已验；引用原件 | 实际组合后继接续待验；原接收者按释放条件执行 |
 
-## Worker brief
+## 工作交件
 
-- Assignment and manager: [one verifiable outcome; creating lead or registered successor]
-- Appointment and context: [role; project rules, registry, relevant decisions, existing work]
-- Acceptance and deliverables: [what the lead will inspect; artifact location; authorized closure boundary]
-- Allowed scope: [exclusive files; permitted reads and writes; permitted external actions]
-- Prohibited scope: [other owners' files; protected configuration/data; external side effects]
-- Workspace and baseline: [worktree; branch; exact assigned base; clean-start evidence or explicit preservation brief]
-- Non-Git or read-only mode: [applicable alternative; content snapshot; no artificial branch or initialization]
-- Dependencies and contracts: [producer/consumer; one shared minimal interface example and state meanings; verified or provisional source; artifact/version; release condition; contract owner]
-- Resource ownership: [ports, databases, sessions, generated outputs, test slots as relevant]
-- Reuse decision: [existing implementation/task; why this assignment is needed]
-- Execution limits: [lead-selected model and supported reasoning, brief reason, context target and verified effective settings; allowed short internal assistance; experiment time/usage cap]
-- Validation: [specific risk and existing coverage gap for added tests; suitable unit/integration/browser layer; necessary review; combined validation owner and required CI]
-- Heavy operations: [existing approval link and remaining budget, including automatic triggers; or CTO decision needed before execution]
-- Reporting and stop conditions: [direct lead; completion, needed higher-level action, or expected scope/budget/stop overrun; unaffected work]
-- Return package: [candidate; changes; checks and evidence; risks; remaining work; dependency release; lessons]
+- 实际改动与固定候选
+- 正常入口及必要环境、主体和版本
+- 已执行命令、原生结果及原件位置
+- 未覆盖、失败和真实剩余项
+- 单写停笔状态及明确接收者
 
-For an experiment, include the hypothesis, minimum test, success/failure criteria, cap, and exit condition before starting.
-For read-only work, prohibit edits, task creation, provider calls, and other external effects unless separately authorized.
+## 具体阻塞或预计越界
 
-## Phase summary or decision-point update
+- 哪个用户结果受到影响
+- 已证事实及最小原件
+- 原授权内已做处理和仍可推进的独立工作
+- 需要谁决定什么，差量、影响和完整预计
 
-- Event: [direction delivery, decision needed, heavy-operation request, material owner instruction, or required handoff; time]
-- Routing: [sender role; recipient role; related task and decision reference]
-- Current decision or requested action: [specific choice; next owner; material impact or deviation]
-- Necessary evidence: [links to observed result and full original; candidate and relevant limitations]
-- Owner intent, when relevant: [faithful request/source, distinguished from interpretation]
-- Delivery: [sent or pending; confirm receipt only when a handoff depends on it; prior-send check before retry]
+## 现场执行与失败
 
-Leads send material owner interactions to the CTO before the affected delivery closes. Update short handoffs at natural milestones;
-use summaries as indexes to original constraints, decisions, and negative results. Honor the owner's context choice; long history or high token use
-alone does not justify lower capacity or compaction thresholds, early compaction, or repeated task switching. Reduce duplicate messages and large reinjections.
-For unavoidable compaction or formal transfer, preserve and verify key original meaning, current decisions, and original-record links before affected work resumes.
-Workers report completion, problems needing higher-level action, or expected scope/budget/stop overruns only to their lead.
-Fix ordinary errors locally and retain evidence. Do not send routine acknowledgments or unchanged relays.
-Sending this update does not itself request another approval for an authorized owner decision.
+- 已核范围、身份、候选及真实开始时点
+- 次数、剩余量和适用期限
+- 实际动作及可证副作用
+- 安全固定码、最内层受信源码阶段、首因、独立收口错误、正常停止与残留状态
+- 敏感原件位置和公开摘要
 
-## Heavy-operation decision paragraph
+## 证据复用
 
-Use one paragraph in the existing brief or decision record, with the criteria in [WORKFLOW section 9](../WORKFLOW.md#9-model-and-execution-policy):
+- 原候选、命令、范围和结果
+- 代码、依赖、环境、配置、数据或主体的实际差量
+- 仍适用部分及受影响检查
+- 当前结论与剩余门
 
-> To [purpose] for [batch and tasks], we need [operation] because [why a smaller approach is insufficient]. Expected resources: [time, calls, downloads, compute or cost as applicable]. Scope and executors: [included work and owners], including [automatic push/PR/hook effects]. Limits: [maximum runs, cumulative budget and concurrency]; stop at [failure, budget or safe stopping condition]. CTO decision: [approved scope or pending decision; owner authorization reference where separately required].
+## 内部预算与角色选型
 
-Reuse approval within its limits; request a new decision for material changes or expected overruns. The CTO records the same details for its own operations.
-If execution starts outside approval, preserve state, start no additional work, pause safely, and report through the lead.
+- 用户硬总域、内部子额、材料范围并集、预留与共享缓存的去重口径
+- 原责任人在总域内的一次调剂；独立窗口、次数与停止条件
+- 用户长期角色型号策略、本次有权选择者及实际能力
+- 临时覆盖的授权、适用角色与恢复条件；配置、加载、路由各自证据
 
-## Dependency handoff
+## 新工具准入
 
-- Producer and consumer: [responsible leads and tasks]
-- Required deliverable: [artifact or contract; exact commit/version; approved location]
-- Shared example: [actual non-sensitive producer output or local producer code with synthetic input; applicable fields/identity/version, success/error, initial/terminal, empty/not-run, apply semantics; no real user data or live providers]
-- Release condition: [observable criteria the receiver must verify before dependent work begins]
-- Evidence: [tests, review, relevant limitations; artifact readback]
-- Ownership: [current file/resource owner; changes require formal transfer when applicable]
-- Receiver result: [accepted or rejected; evidence; mismatch and resolver]
-- Next action: [owner; sequencing; unaffected work that can proceed]
-- CTO update: [material conclusion; unresolved shared-design, ownership, priority, or acceptance decision]
+- 现有能力缺口与本次消费者
+- 固定来源、版本、许可证和安全公告
+- 执行、权限、依赖、网络及数据流
+- 验证、结果、剩余风险和停用方式
 
-If the producer is not implemented, mark the example provisional/unverified, continue independent work, and assign reconciliation before integration.
-Fixtures follow the shared contract and example. The responsible lead handles ordinary aligned details; material shared-boundary changes go to the CTO.
+## 暂停或移交
 
-## Acceptance and delivery record
+- 用户最新决定与生效时点
+- 在途、自有进程、已有副作用和正常收口
+- 已有成果、未完修改、未耗额度和未知量
+- 后续有效授权与接收者
 
-- Assignment and acceptance boundary: [brief link; accountable lead; authorized endpoint]
-- Batch coverage: [each required objective from the initial coverage map and its evidence; included interactions; combined candidate; explicit deferrals or scope changes]
-- Candidate identity: [repository/workspace; exact commit or reproducible content snapshot; configuration and time]
-- Delivered changes: [artifact paths and observable behavior; deviations from the brief]
-- Acceptance evidence: [criterion -> result -> evidence location]
-- Validation: [local checks; final combined validation and approval; commands/exit codes; artifact readback; failures and limitations]
-- Independent review: [reviewer; candidate reviewed; findings resolved or outstanding; applicable requirement]
-- CI and integration: [same-commit checks; result; integration owner; resulting candidate and revalidation]
-- Delivery milestones: [implementation / verification / integration / deployment, each with status, owner, evidence, or explicit out-of-scope reason]
-- Remaining work and risks: [unfinished scope if this is a stage; mandatory gate still open; blocker and resolver; optional follow-up]
-- Dependency release: [deliverable and condition; receiving lead's acknowledgment]
-- Closure: [required archives/handoff; lead recommendation; CTO readback and final status]
-- Total effort: [existing-log review at delivery or a clear deviation; reasoning, implementation, rereading, communication, test writing/running; token data or unknown]
-- Lesson: [usually three sentences: largest avoidable waste; cause; one specific next-task change; or none]
+## 经验与记忆
 
-For major errors, repeated failures, or complex handoffs, include the root cause, impact, response, evidence, and rollback details needed for the case.
-Do not hard-limit length or omit required evidence. Keep the complete original in one place and link it; no new ledger or monitor is needed.
-Apply ordinary lessons locally in the next task. Shared-rule changes need a repeated or major issue with clear evidence and the applicable writing authority.
-Before reusing evidence, inspect code, dependencies, environment, configuration, tested scope, and mandatory gates.
-After a failure, fix and check the affected path first, then decide which full checks need repeating within the approved budget.
-Use unit tests for branches, integration tests for connections, and browser tests for key flows; avoid copying one assertion across layers or oversized fixtures.
-Preserve independent risk gates and the agreed validation boundary; line count alone is not a reason to remove tests.
-Use files, logs, and tests when sufficient; visual capture, traces, hashes, or additional encryption need an actual purpose.
-If a required gate is blocked, keep it open and name the missing condition. Do not write “done” for a partially fulfilled boundary.
+- 已证事实、原因、影响和处理范围
+- 验证结果及仍未知部分
+- 对应WF规则与既有场景
+- 唯一维护源、日期及回溯位置
 
-## Ownership and dispatcher transfer
-
-- Transfer scope: [CTO, lead, worker, files, or resources; affected existing tasks]
-- Authority and reason: [owner or CTO decision, or responsible lead for its bounded allocation; no timeout-based inference]
-- Predecessor and successor: [one outgoing and one incoming owner; their verified task identities]
-- Preserved context: [objective; decisions; authorization; workers; paths/resources; dependencies; models/configuration]
-- Work and evidence: [candidate commits or snapshots; dirty state; tests/review/CI; remaining work]
-- Cessation: [evidence the predecessor stopped dispatching and/or writing the transferred scope; unresolved runtime checks]
-- Successor acceptance: [handoff readback; exact scope accepted; time]
-- Effective record: [registry update and effective time; sole writer after a CTO transfer]
-- Worker notice: [authorized delivery channel; affected workers' confirmation of their registered manager]
-- Resume action: [new owner's next step; required revalidation; preserved limits]
-- Incomplete transfer: [conflicting actions held; missing evidence; independent read-only preparation]
-
-For a CTO transfer, the predecessor stops registry writes before the successor assumes them.
-For a lead transfer, the CTO records the successor for existing workers before dispatch resumes.
+公开模板使用虚构数据，具体秘密、私有路径和真实任务身份留在原授权位置。

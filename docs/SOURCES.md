@@ -7,6 +7,8 @@ personal project's instructions, conversations, task registry, or credentials.
 
 ## Reference documentation
 
+Version 3.1.0 research, papers, maintainer discussions, tool reviews, and applicability limits are recorded once in [RESEARCH.md](RESEARCH.md). The source-reading date remains explicit there; this release does not claim a new online review.
+
 - [OpenAI: custom instructions with AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md), for the Codex instruction entry point.
 - [OpenAI: Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees), for Codex checkout concepts.
 - [Git: git-worktree](https://git-scm.com/docs/git-worktree), for Git's worktree behavior.

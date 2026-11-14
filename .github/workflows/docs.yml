@@ -15,3 +15,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Validate files, links, diagrams, and schedule assumptions
         run: python3 scripts/validate.py
+      - name: Validate scenario structure
+        run: python3 scripts/check_scenarios.py --scenarios validation/scenarios.json
+      - name: Test read-only utilities
+        run: python3 -m unittest discover -s tests -v
